@@ -19,6 +19,7 @@ jobs:
       - name: Check the Critério fork layer
         run: |
           python -B tools/test_criterio.py
+          python -B tools/test_avaliacao_v2.py
           python -B product/skills/registro/scripts/test_check_registro.py
       - uses: actions/setup-node@v5
         with:

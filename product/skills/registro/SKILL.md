@@ -29,7 +29,7 @@ A pesquisa e a página da proposta continuam com the `propose` skill. Este skill
 | restricao | regra que o trabalho não fura | preferência que dá pra negociar na hora |
 | objetivo | resultado buscado | autorização |
 
-Pedido de cliente grande pode ser preferência `de_quem: cliente`. Pode subir uma nota. Não vira restrição, não autoriza versão exclusiva e não autoriza construir.
+Pedido de cliente, grande ou pequeno, pode ser preferência `de_quem: cliente`. Pode subir a nota do item compartilhado. Não vira restrição, não autoriza versão exclusiva e não autoriza construir. Se o pedido mistura esse item com uma versão exclusiva, separe. Anote o peso do item compartilhado. A versão exclusiva continua barrada. Não deixe de anotar o peso só porque o cliente é grande.
 
 ## Como escrever
 
@@ -41,7 +41,7 @@ Pedido de cliente grande pode ser preferência `de_quem: cliente`. Pode subir um
 6. Restrição nomeia `autoridade_pra_mudar`. Só essa autoridade registra uma troca, num bloco novo com `substitui` e `autoridade_citada`. O bloco velho fica. A igualdade das duas frases não autentica a pessoa.
 7. Nota de prioridade usa escala `1-5`, escrita no campo `escala`. A primeira nota do item é um bloco com `nota_anterior: nenhuma` e sem `anterior_id`. Nota que muda ganha um bloco novo, no mesmo `item`, com `anterior_id` apontando pro bloco anterior e `nota_anterior` igual à `nota` daquele bloco. A data do bloco novo não pode ser anterior à do bloco ligado. A cadeia não volta a um id já visto e acaba no primeiro bloco, com `nota_anterior: nenhuma`. Não reescreva a nota no bloco velho. `nota: nenhuma` não existe. A nota não autoriza pesquisar, construir, versão exclusiva nem furar restrição.
 8. Permissão de pesquisar e permissão de construir são blocos diferentes. Uma decisão aponta os dois ids. `executa` é `não` nos dois. `situacao` é `concedida` ou `recusada`. Conceder no papel ainda não executa.
-9. Copie o molde em `references/modelo.md`. O caso completo está em `references/exemplo-escala-miuda.md`. Um arquivo usa uma representação só. Markdown leva a cerca `registro`. HTML leva `<article class="registro">` com `<dt>` e `<dd>`. Os dois não convivem no mesmo arquivo, pra não haver duas fontes da mesma decisão.
+9. Copie o molde em `references/modelo.md`. O caso completo está em `references/exemplo-escala-miuda.md`. Um arquivo usa uma representação só. Cada registro é uma cerca fechada antes do próximo `id`. Não junte vários registros na mesma cerca. Não descreva o registro só em prosa quando a tarefa pede o formato. Use os nomes do molde. Preferência leva `autoriza_execucao`, não `autoriza_pesquisar`. Não invente `autoriza_furar_restricao`. O nome é `autoriza_violar_restricao`. HTML leva `<article class="registro">` com `<dt>` e `<dd>`, um article por registro. Os dois formatos não convivem no mesmo arquivo, pra não haver duas fontes da mesma decisão.
 
 A grade de impacto e esforço de 1 a 3 continua na proposta. A nota auditada daqui é a de 1 a 5.
 

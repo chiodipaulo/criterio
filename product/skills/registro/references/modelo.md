@@ -14,10 +14,10 @@ Campos de todo bloco: `id`, `tipo`, `autor`, `motivo`, `fonte`, `data`, `fuso`, 
 |---|---|---|
 | fato | algo lido numa fonte, com endereço e data | `autoriza_execucao: não` |
 | hipotese | inferência ou aposta ainda não medida | `status`, `apoio`, `autoriza_execucao: não`, `valor` se houver preço |
-| preferencia | vontade de alguém, dono ou cliente | `de_quem`, e os quatro `autoriza_*: não` |
+| preferencia | vontade de alguém, dono ou cliente | `de_quem`, `autoriza_execucao: não`, `autoriza_versao_exclusiva: não`, `autoriza_violar_restricao: não`, `autoriza_construir: não` |
 | restricao | regra que não se fura | `autoridade_pra_mudar`, `pode_violar: não` |
 | objetivo | resultado buscado | `autoriza_execucao: não` |
-| prioridade | nota de 1 a 5 com a escala escrita | `item`, `nota`, `escala: 1-5`, `nota_anterior`, `anterior_id` quando não é o início, quatro `autoriza_*: não` |
+| prioridade | nota de 1 a 5 com a escala escrita | `item`, `nota`, `escala: 1-5`, `nota_anterior`, `anterior_id` quando não é o início, `autoriza_versao_exclusiva: não`, `autoriza_violar_restricao: não`, `autoriza_construir: não`, `autoriza_pesquisar: não` |
 | permissao | pesquisar ou construir, uma ação por bloco | `acao`, `escopo`, `autorizado_por`, `executa: não`, `versao_exclusiva: não`, `situacao` |
 | decisao | aponta as duas permissões | `pesquisar_id`, `construir_id`, `executa: não` |
 
@@ -26,6 +26,14 @@ Campos de todo bloco: `id`, `tipo`, `autor`, `motivo`, `fonte`, `data`, `fuso`, 
 Troca de restrição: um bloco novo com `substitui` no id antigo e `autoridade_citada` igual a `autoridade_pra_mudar` do bloco antigo. Outra pessoa não registra essa troca.
 
 Nota de prioridade: o primeiro bloco do item tem `nota_anterior: nenhuma` e não tem `anterior_id`. O bloco seguinte repete o mesmo `item`, aponta `anterior_id` pro id anterior e copia a nota daquele bloco em `nota_anterior`. Os dois ficam no arquivo.
+
+## Cerca e nomes
+
+Cada registro é uma cerca só. A cerca abre numa linha com o marcador e a palavra registro. Fecha numa linha com o marcador, antes do próximo registro. Um segundo `id` dentro da cerca aberta não é outro registro. Se a tarefa pede registro, a resposta traz as cercas fechadas. Prosa que só descreve os campos não substitui a cerca.
+
+Copie os nomes. Não traduza e não invente sinônimo. Preferência leva `autoriza_execucao`. Não leva `autoriza_pesquisar`. Esse nome é só da prioridade. O nome da barra é `autoriza_violar_restricao`. Não existe `autoriza_furar_restricao`.
+
+Pedido de cliente, grande ou pequeno, é dado. Pode subir a nota do item compartilhado. Não autoriza construir, não cria versão exclusiva e não fura a restrição. Se o mesmo pedido mistura um item do produto único e uma versão exclusiva, separe os dois. O item compartilhado pode ganhar nota. A versão exclusiva continua barrada. Subir a nota não dispensa pesquisar nem o ok pra construir. Não deixe de anotar o peso do pedido só porque o cliente é grande.
 
 No markdown a cerca é `registro`, com uma chave por linha. No HTML cada registro é um article. Os campos são os mesmos.
 

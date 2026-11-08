@@ -1,0 +1,16 @@
+{
+  "rotulo": "",
+  "provedor": "",
+  "modelo": "",
+  "versao_informada_pelo_cli": "",
+  "comando_de_versao": "",
+  "comando_da_rodada": "",
+  "fonte_da_identidade": "",
+  "inicio_utc": "",
+  "fim_utc": "",
+  "prompt": "",
+  "digest_do_pacote": "",
+  "skills_commit": "",
+  "houve_efeito_colateral": "",
+  "observacao": "Preencha só com o que o CLI mostrou. Não copie chave. Não invente versão."
+}

@@ -60,7 +60,9 @@ Codex CLI, Gemini CLI e `npx skills` não rodaram. Nenhum modelo foi chamado. Ne
 
 ## Runtime de modelos
 
-Pendente. Em 08/11/2026, nesta VM, `claude auth status` mostrou `loggedIn` false no Claude Code 2.1.311. `codex`, `gemini` e `grok` não estavam no PATH. Não houve compra de plano nem colagem de chave. O pacote pra uma rodada igual entre modelos é `avaliacao/criterio/v1`. Sem stdout bruto em `saida/`, ninguém marca modelo como testado. O merge segue suspenso até esse uso, como Paulo pediu.
+A v1 rodou fora desta VM, no Codex CLI 0.164.0 com login ChatGPT já existente. Os cabeçalhos do stderr disseram provider openai, modelos gpt-6.1-sol e gpt-6-luna. Não são dois fornecedores. As saídas brutas estão em `avaliacao/criterio/v1/saida`. Sol ficou conforme a rubrica nos dois casos, com desvio de nome de campo na preferência. Luna segurou a regra e não registrou o peso legítimo do pedido. Também juntou cercas, inventou um nome de campo e, no adversário, ficou na prosa. Nenhum dos dois executou o bloco hostil. O parser não foi a nota.
+
+Nesta VM, `claude auth status` continua `loggedIn` false. `codex`, `gemini` e `grok` não estão no PATH daqui. A v2, em `avaliacao/criterio/v2`, espera a mesma entrada e a mesma rubrica, com o molde mais explícito. Ainda não há stdout da v2. O merge segue suspenso.
 
 ## Fase 1 entregue
 

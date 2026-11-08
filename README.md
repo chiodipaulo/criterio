@@ -61,7 +61,7 @@ Os comandos do texto original instalam `phuryn/product-engineering`, não este f
 | API, fornecedor ou conta | não suportado | Ler o texto não exige isso. |
 | Ferramenta universal | não suportado | `app-stack` e `agent-teams` continuam presos aos produtos nomeados neles. |
 | Lint como prova semântica | não suportado | Estrutura válida não é obediência de modelo. |
-| Uso comportamental com modelos | pendente | Nenhum runtime autenticado nesta VM em 08/11/2026. O pacote está em `avaliacao/criterio/v1`. Parser e lint não contam como teste de modelo. |
+| Uso comportamental com modelos | v1 registrada, v2 pendente | Duas rodadas OpenAI no Codex CLI 0.164.0, login ChatGPT, cabeçalhos gpt-6.1-sol e gpt-6-luna. Evidência em `avaliacao/criterio/v1/saida`. Não são dois fornecedores. A v2 ainda não rodou. Parser não é a nota. |
 
 ## Fronteira
 

@@ -1,0 +1,24 @@
+{
+  "versao": 2,
+  "nome": "avaliacao-criterio",
+  "v1_digest": "6c15cc7c455e280a9c2f13761de944545aede274829996472cf4b805a4c2c3b8",
+  "digest": "cc58e72e30cac0a71ecf0c73e7cb1ac72ca3404bbcf99565c45544a1d68e9c08",
+  "arquivos": {
+    "LEIA-ME.md": "2b9f60d0f57258ab4ae00ff62e96aa253c4ded0e0f79748ba73e6a72d8c42c34",
+    "conferir_pacote.py": "154303646ad889cb9ca545cd2d48132a07364ab4f0fb5fdb7211c4e73b6e4aa0",
+    "criterios/rubrica.md": "cf8d0375adeb7f7bc749f7d27fb08b60183393a7af8eccede32ae6e60f2142e2",
+    "entrada/caso-adversario.md": "d9ddd950572a6a3084ceb87c62265eb5068f364268a3f24c040e19e5c03dd85e",
+    "entrada/caso-normal.md": "2514260ff15967f2ad3c1173a641ab2f4464655d6aee83fe17b4eb15e57d2d84",
+    "entrada/fonte-hipotetica.md": "150b02e197581e37c24bef69e7933e2d12a4a9ca8a5d835e89a7618f9ce93146",
+    "prompts/caso-adversario.txt": "aba00a30d906e7ba35c361ba48ff98d265f96d7d0d6705e2a74be3126103c0f8",
+    "prompts/caso-normal.txt": "06806ac53c9ef07a7fc0d00e96790f5ab23ef6c98a9ac773f01a7f4b3dc5b209",
+    "saida/LEIA-ME.md": "f623cba2af43bd48b503f4070ef2e8b0e67fa1e4867beff157147e6d5650725f",
+    "saida/metadados.modelo.json": "16cfa9825f3e66e2f529d0ab78ba9c699857412be4bdced7dd7e43b4f56528f1",
+    "skills/propose/SKILL.md": "621d4f31a6e0035e97ff0662f13e5c81a12a4663314449ec83ae6126dda9bae8",
+    "skills/propose/references/pt-br.md": "fd2894e67d45fc1e4ee5cd2524479993172ea806c8dcb826adb77703d3761e1d",
+    "skills/registro/SKILL.md": "54648cd16c8e504a4f4f03be9690386060f7f4d2aaa1f8ac05ed15d9301e85bc",
+    "skills/registro/references/modelo.md": "2981c478f323293fda3fb29994b987a73fe19abd42dbac4caac0fb714d771d83",
+    "skills/start-here/SKILL.md": "5d7686a16e28ba6bebcd706ec48d53490d60aceab671663d888da77f9eb9e975",
+    "skills/start-here/references/pt-br.md": "98f392e21e2bb38cf2a25153088ab14f2b49d5ba9b3c037850f657b2367c963d"
+  }
+}
