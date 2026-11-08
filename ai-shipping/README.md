@@ -1,5 +1,7 @@
 # ai-shipping — ship AI-built apps
 
+> **Fork Critério.** O método abaixo é texto. O revisor que o upstream usa por padrão chama o CLI do Grok ou uma sessão nova do Claude Code. O fork não trata este pacote como ferramenta universal. O texto segue em inglês.
+
 For builders, PMs and founders accountable for AI-built code. Document a vibe-coded app, review it for correctness, security and performance defects, have a fresh reviewer that never saw the build clear every push that deploys and every release, prove it with a test harness that fakes the right side, and release it through a gate the owner says go to.
 
 It is where the AI Shipping Kit from [pm-skills](https://github.com/phuryn/pm-skills) moved: its three skills and the five workflows that are commands there, plus `release-gate` and `test-harness`. `pm-ai-shipping` in pm-skills now only points here, so once this pack is installed, turn it off.

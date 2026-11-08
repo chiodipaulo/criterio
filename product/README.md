@@ -1,5 +1,7 @@
 # product — deciding what to build
 
+> **Fork Critério.** Este pacote ganhou o skill `registro`, iniciado pela pessoa. O texto de origem abaixo segue em inglês.
+
 Before an agent builds anything: who it is for, what they need that nothing serves well, how the product compares with what they use today, which segment to win first, and how it will grow. What these skills produce is a draft the owner confirms, not a decision.
 
 **Start with `/product:start-here`** (Codex: `$product:start-here`): say what you have, and it names the next step along the lifecycle and the skill for it, in this pack or another.
@@ -13,11 +15,12 @@ claude plugin install product@product-engineering
 
 Codex, Cursor and other agents: see the collection's root `README.md`.
 
-## Skills (8)
+## Skills (9)
 
 **You start it:**
 
 - **start-here** — Where the work stands and what comes next, from a new idea, new evidence, an agreed change, a bug or a release: the next step, the skill that does it, and the plan prompt for a complex change (key assumptions first, then what to implement, how to test it, acceptance criteria). Only when you start it.
+- **registro** — No fork Critério, a pessoa inicia. Classifica fato, hipótese, preferência, restrição e objetivo, guarda a nota anterior quando a prioridade muda, e separa permissão de pesquisar e de construir. O arquivo não é ordem de executar. Formato em `/product:registro`.
 
 **They start on their own**, in the order they are usually used:
 

@@ -16,6 +16,10 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+      - name: Check the Critério fork layer
+        run: |
+          python -B tools/test_criterio.py
+          python -B product/skills/registro/scripts/test_check_registro.py
       - uses: actions/setup-node@v5
         with:
           node-version: "22"

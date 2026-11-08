@@ -1,5 +1,7 @@
 # agent-harness — make your own agent setup reliable
 
+> **Fork Critério.** Os hooks de guardrail deste pacote são do Claude Code. Copiar a pasta não liga esses hooks em outro agente. O fork não trata este pacote como ferramenta universal. O texto segue em inglês.
+
 The machinery around the agent: instructions met at the moment they apply, rules held by code instead of prose, state that survives the context window, and the shell traps that break agents on Windows.
 
 ## Install

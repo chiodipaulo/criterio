@@ -39,6 +39,10 @@ After installing packs, apply the `agent-instructions` skill once to wire the pr
 
 **Small fixes go straight to the build and its verification.** The steps below are for work that has them; a one-line copy change that walks through a proposal and a plan is ceremony, and ceremony teaches everyone to skip the steps that matter.
 
+### Fork Critério
+
+No fork Critério, fato, hipótese, preferência, restrição e objetivo ficam separados. Cada um leva autor, motivo, fonte e data. Uma nota que muda guarda a nota anterior. Pedido de cliente grande pode subir a nota e não autoriza versão exclusiva nem fura restrição. Permissão de pesquisar e permissão de construir são distintas. O arquivo não é ordem de executar. O formato está em `/product:registro` (Codex: `$product:registro`, pasta copiada: `/registro`).
+
 ## The lifecycle
 
 1. **Start.** You say what you have; this skill reads it and the repository, finds where the work stands, and names the next step (the table above).

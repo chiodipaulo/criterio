@@ -1,3 +1,83 @@
+# Critério
+
+Fork de [Product Engineering](https://github.com/phuryn/product-engineering), em português, no contexto brasileiro. O repositório é [chiodipaulo/criterio](https://github.com/chiodipaulo/criterio). São skills de agente, em pastas com `SKILL.md`. Não é um aplicativo, não pede uma API e não pede conta pra ser lido.
+
+O copyright do texto original é de Pawel Huryn, 2026. A licença é MIT e está inteira em [LICENSE.md](LICENSE.md). Paulo Chiodi mantém este fork. O fork não fala pelo upstream.
+
+O upstream traz 44 skills em 6 pacotes. Este fork acrescenta `registro`, que a pessoa inicia com `/product:registro` (Codex: `$product:registro`). Os slugs antigos ficam iguais. O caso de ponta a ponta é [Escala Miúda](product/skills/registro/references/exemplo-escala-miuda.md), marcado como fictício. O mapa, as decisões e as fases seguintes estão em [docs/escopo.md](docs/escopo.md).
+
+Este fork não promete funcionar em qualquer modelo. Lint não mostra que um modelo seguiu o texto. Nenhum modelo foi chamado nesta adaptação.
+
+## Instalar este fork
+
+O nome interno do marketplace continua `product-engineering`, igual ao upstream, pra não reescrever os slugs `pacote@product-engineering` espalhados nos skills. Não instale este fork e o upstream ao mesmo tempo. Os dois usam o nome interno `product-engineering`.
+
+Estes comandos são o formato que o texto original documenta, apontados pra este repositório. Não foram executados aqui.
+
+```bash
+claude plugin marketplace add chiodipaulo/criterio
+claude plugin install product@product-engineering
+claude plugin install ai-shipping@product-engineering
+claude plugin install agent-teams@product-engineering
+claude plugin install agent-harness@product-engineering
+claude plugin install app-stack@product-engineering
+claude plugin install work-humanizer@product-engineering
+```
+
+```bash
+codex plugin marketplace add chiodipaulo/criterio
+codex plugin add product@product-engineering
+```
+
+```bash
+npx skills add chiodipaulo/criterio
+```
+
+O texto original, lido neste repositório em 08/11/2026, diz que `npx skills` pede Node.js 22.20 ou mais novo. Isso não foi executado aqui.
+
+Sem esses programas, copie a pasta `skills/<nome>` do pacote pra a pasta que o seu agente lê. O texto original nomeia `.agents/skills/`, `.claude/skills/`, `.cursor/skills/` e `~/.gemini/skills/`. Cada skill funciona na pasta dele. Com a pasta copiada, o comando é `/registro` ou `$registro`.
+
+Os comandos do texto original instalam `phuryn/product-engineering`, não este fork.
+
+## O que foi exercitado
+
+| Caminho | Status | O que aconteceu nesta adaptação |
+|---|---|---|
+| Leitura de SKILL.md como texto | testado aqui | O validador de estrutura e os testes do fork rodaram sobre os arquivos. Nenhum modelo foi chamado. |
+| Claude Code | só documentado | Comandos acima, no formato do upstream. Nenhum plugin foi instalado numa sessão. |
+| Manifesto claude plugin validate | testado aqui | Claude Code 2.1.311 em 08/11/2026, sem conta. Passou com os avisos de versão que o upstream deixa de propósito. Nenhuma sessão carregou plugin. |
+| Codex | só documentado | Comandos acima, no formato do upstream. O CLI não estava neste ambiente. |
+| Gemini CLI | só documentado | Só a cópia de pasta que o texto original descreve. Nenhum comando Gemini foi executado. |
+| API, fornecedor ou conta | não suportado | Ler o texto não exige isso. |
+| Ferramenta universal | não suportado | `app-stack` e `agent-teams` continuam presos aos produtos nomeados neles. |
+| Lint como prova semântica | não suportado | Estrutura válida não é obediência de modelo. |
+
+## Pacotes
+
+| Pacote | Texto | Execução |
+|---|---|---|
+| product | inglês do upstream, mais `registro` e uma ponte em `start-here` e em `propose` | texto portátil. `propose` ainda cita extras do Claude |
+| ai-shipping | inglês | método em texto. O revisor padrão do upstream chama Grok ou Claude Code |
+| agent-teams | inglês | CLIs do Codex, do Grok e do Claude Code |
+| agent-harness | inglês | hooks de guardrail do Claude Code |
+| app-stack | inglês | Next.js, Supabase, Clerk e Netlify. Dois skills usam a API da Anthropic |
+| work-humanizer | inglês | texto e um script Python, sem fornecedor |
+
+Os casos do autor original continuam em [CASE-STUDIES.md](CASE-STUDIES.md) e no texto em inglês abaixo. Não foram retraduzidos.
+
+## Atualização
+
+Não há atualização automática. Uma atualização é um diff do upstream lido à mão. A entrada em português, `docs/escopo.md`, o skill `registro`, as pontes em `start-here` e `propose`, e os avisos dos pacotes presos a provedor não se apagam pra copiar o upstream por cima. `main` deste fork é o que um marketplace instalado serve depois que uma pessoa mescla. Este trabalho não mescla e não vai ao upstream.
+
+## Atribuição
+
+Texto original e licença por Pawel Huryn, 2026, MIT, arquivo [LICENSE.md](LICENSE.md). Fork Critério por Paulo Chiodi, em [chiodipaulo/criterio](https://github.com/chiodipaulo/criterio). Upstream em [phuryn/product-engineering](https://github.com/phuryn/product-engineering).
+
+## Texto original do upstream
+
+Os comandos do texto original instalam `phuryn/product-engineering`, não este fork. O bloco abaixo fica byte a byte como estava na origem deste fork.
+
+<!-- upstream-readme -->
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](https://github.com/phuryn/product-engineering/blob/main/LICENSE.md)
 [![Tests](https://github.com/phuryn/product-engineering/actions/workflows/tests.yml/badge.svg)](https://github.com/phuryn/product-engineering/actions/workflows/tests.yml)
 [![Companion: pm-skills](https://img.shields.io/badge/companion-pm--skills-blue)](https://github.com/phuryn/pm-skills)

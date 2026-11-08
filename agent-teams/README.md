@@ -1,5 +1,7 @@
 # agent-teams — work with other agents as partners
 
+> **Fork Critério.** Estes skills dirigem os CLIs do Codex, do Grok e do Claude Code. O fork não trata este pacote como ferramenta universal. O texto abaixo segue em inglês.
+
 A delegate is a partner, not a tool: it gets the why, not just the what. These skills are how to brief any delegate, and how to drive each kind — the Codex CLI, the Grok CLI and Claude Code, each run headless by another agent as a peer, builder or reviewer. The review loop itself, round after round, is `independent-review`, in the `ai-shipping` pack.
 
 ## Install
