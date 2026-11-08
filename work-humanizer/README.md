@@ -5,8 +5,8 @@ Also free and public at [phuryn/work-humanizer](https://github.com/phuryn/work-h
 ## Install
 
 ```bash
-claude plugin marketplace add phuryn/product-engineering
-claude plugin install work-humanizer@product-engineering
+claude plugin marketplace add chiodipaulo/criterio
+claude plugin install work-humanizer@criterio
 ```
 
 Codex, Cursor and other agents: see the collection's root `README.md`.

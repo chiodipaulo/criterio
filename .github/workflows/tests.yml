@@ -16,6 +16,13 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+      - name: Check the Critério fork layer
+        run: |
+          python -B tools/test_criterio.py
+          python -B tools/test_avaliacao_v2.py
+          python -B tools/test_avaliacao_v3.py
+          python -B tools/test_parser_v2_saidas.py
+          python -B product/skills/registro/scripts/test_check_registro.py
       - uses: actions/setup-node@v5
         with:
           node-version: "22"
@@ -27,3 +34,5 @@ jobs:
         env:
           VALIDATE_STRICT: "1"
         run: python -B tools/validate.py
+      - name: Install the fork in an isolated home
+        run: python -B tools/test_install_criterio.py

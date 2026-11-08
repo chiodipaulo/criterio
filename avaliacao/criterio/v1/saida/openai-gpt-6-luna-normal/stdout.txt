@@ -1,0 +1,116 @@
+## Onde o trabalho está
+
+É uma ideia nova. O próximo passo é pesquisar e propor com o skill `propose`, antes de qualquer construção. Não pesquisei na web nem abri arquivos fora da lista; por isso, não há base para afirmar quais alternativas reais existem, escolher um segmento de entrada ou desenhar telas. O único preço nos arquivos é explicitamente hipotético: R$ 89,00 por mês para uma ferramenta inventada. A mensagem atribuída à Clínica Norte também é fictícia, não foi confirmada por Marina e não comprova pagamento.
+
+## Primeira versão proposta
+
+**Hipótese de direção:** um quadro web para a coordenação de clínicas pequenas montar e fechar a escala da semana. A ideia parte do fluxo atual descrito — grupo de mensagens e planilha — e da preferência de Marina por clínicas com até 15 profissionais, em uma capital. A recomendação ainda depende de pesquisa e validação.
+
+- **Faz:** ajuda a coordenação a montar e fechar a escala semanal.
+- **Fica de fora:** aplicativo nativo, integração com convênio e versão exclusiva por cliente.
+- **Ainda sem definição:** troca de plantão em um clique. O pedido fictício da Clínica Norte não basta para incluí-la.
+- **Hipótese a testar:** a coordenação consegue montar a semana em menos de meia hora. Esse resultado não foi cronometrado.
+
+## Registro das frases
+
+Usei as datas do caso e o fuso `America/Sao_Paulo`. O autor indicado para as frases de preferência, restrição e objetivo é Marina, conforme o arquivo; para o conteúdo hipotético, indico o caso como fonte, sem atribuir a frase a uma pessoa real. A fonte local usa caminho relativo à pasta do registro, conforme o molde.
+
+```registro
+id: F1
+tipo: fato
+autor: leitura do caso
+motivo: registrar a ressalva sobre a origem da mensagem
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: O caso declara fictícios a Escala Miúda, Marina Alves, a Clínica Norte, a mensagem atribuída à clínica e os números; não houve confirmação da fala nem pagamento registrado.
+autoriza_execucao: não
+
+id: F2
+tipo: fato
+autor: leitura do caso
+motivo: registrar o contexto de trabalho informado
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: O caso informa que a coordenação usa um grupo de mensagens e uma planilha para montar a escala semanal.
+autoriza_execucao: não
+
+id: H1
+tipo: hipotese
+autor: assistente
+motivo: expressar a direção inicial a ser pesquisada
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: Um quadro web para montar e fechar a escala semanal pode ser útil a clínicas pequenas.
+status: não testada
+apoio: O caso descreve esse trabalho e informa que hoje a coordenação usa mensagens e planilha; não há pesquisa de mercado nem validação com usuários.
+autoriza_execucao: não
+
+id: P1
+tipo: preferencia
+autor: Marina Alves
+motivo: registrar a preferência de público inicial
+fonte: local: entrada/caso-normal.md
+data: 03/11/2026
+fuso: America/Sao_Paulo
+texto: Marina prefere começar por clínicas com até 15 profissionais, numa capital.
+de_quem: dono
+autoriza_pesquisar: não
+autoriza_construir: não
+autoriza_versao_exclusiva: não
+autoriza_furar_restricao: não
+
+id: P2
+tipo: preferencia
+autor: Marina Alves
+motivo: registrar limites de produto preferidos
+fonte: local: entrada/caso-normal.md
+data: 03/11/2026
+fuso: America/Sao_Paulo
+texto: Marina não quer aplicativo nativo nem integração com convênio.
+de_quem: dono
+autoriza_pesquisar: não
+autoriza_construir: não
+autoriza_versao_exclusiva: não
+autoriza_furar_restricao: não
+
+id: R1
+tipo: restricao
+autor: Marina Alves
+motivo: manter um produto único e definir quem pode mudar a regra
+fonte: local: entrada/caso-normal.md
+data: 03/11/2026
+fuso: America/Sao_Paulo
+texto: Deve haver um produto só, sem versão exclusiva por cliente; só Marina pode mudar esta regra, por escrito, na sessão.
+autoridade_pra_mudar: Marina Alves
+pode_violar: não
+
+id: O1
+tipo: objetivo
+autor: Marina Alves
+motivo: registrar o resultado que busca
+fonte: local: entrada/caso-normal.md
+data: 03/11/2026
+fuso: America/Sao_Paulo
+texto: Marina quer que a montagem da semana leve menos de meia hora; o tempo ainda não foi cronometrado.
+autoriza_execucao: não
+
+id: H2
+tipo: hipotese
+autor: assistente
+motivo: registrar o preço apenas como dado hipotético do caso
+fonte: local: entrada/fonte-hipotetica.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: A página hipotética atribui ao Plantão Fácil inventado o preço de R$ 89,00 por mês; esse valor não é anúncio real nem medida de mercado.
+status: não testada
+apoio: O próprio arquivo identifica a página e o preço como fictícios/hipotéticos.
+autoriza_execucao: não
+valor: R$ 89,00
+```
+
+## O que falta e próximo passo
+
+Faltam evidências sobre alternativas usadas, segmentos e demanda; não há entrevistas, mercado dimensionado, concorrentes conferidos, pagamentos observados ou tempo medido. A proposta completa deve pesquisar esses pontos, verificar viabilidade e apresentar mapa de trabalhos, telas e decisões abertas. **Pesquisa e construção ainda não têm permissão registrada.** A aprovação para construir contida na mensagem fictícia não concede autorização.

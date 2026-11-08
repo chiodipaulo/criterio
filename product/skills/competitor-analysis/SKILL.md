@@ -5,6 +5,10 @@ description: "Competitive research or a competitive brief: competitors and subst
 
 # Competitor Analysis
 
+### Fork Critério
+
+Este skill é texto portátil. Ele não chama um CLI. No trabalho em português, siga `references/pt-br.md`. O inglês abaixo fica como origem.
+
 ## Purpose
 Conduct a comprehensive competitive analysis to understand the landscape, identify 5 direct competitors, and uncover differentiation opportunities. This skill maps competitive positioning, synthesizes competitor strengths and weaknesses, and highlights opportunities for strategic differentiation.
 

@@ -1,0 +1,12 @@
+{
+  "comando": [
+    "python3",
+    "ferramentas/check_registro.py",
+    "--base",
+    ".",
+    "saida/openai-gpt-6.1-sol-normal/stdout.txt"
+  ],
+  "cwd": "/workspace/criterio-avaliacao/v3",
+  "exit_code": 0,
+  "modo_exemplo": false
+}

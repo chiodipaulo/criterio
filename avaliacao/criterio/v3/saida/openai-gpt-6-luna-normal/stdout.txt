@@ -1,0 +1,130 @@
+O trabalho está na fase de **ideia nova**. O próximo passo é o skill `propose`: pesquisar o que falta e apresentar uma proposta para Marina revisar. Os arquivos não autorizam construir, e a mensagem fictícia da Clínica Norte não muda isso.
+
+**Primeira versão proposta — hipótese:** um quadro web para coordenar clínicas pequenas, com até 15 profissionais, e montar a escala semanal. Pode mostrar uma semana de exemplo e permitir organizar os plantões e a troca de plantão em um clique. Ficam de fora o aplicativo nativo, a integração com convênio e qualquer versão exclusiva por cliente. A troca em um clique é uma solicitação do contato, ainda não confirmada por Marina; sua viabilidade e prioridade precisam ser pesquisadas. Também faltam dados para comparar alternativas, confirmar o segmento e avaliar pagamentos. O resultado de montar a escala em menos de meia hora ainda não foi medido.
+
+```registro
+id: F1
+tipo: fato
+autor: agente
+motivo: registrar o cenário e os limites relatados no caso de entrada
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: O caso é fictício; Marina prefere começar por clínicas com até 15 profissionais numa capital, não quer aplicativo nativo nem integração com convênio, e fixou a regra de um produto sem versão exclusiva por cliente.
+autoriza_execucao: não
+```
+
+```registro
+id: O1
+tipo: objetivo
+autor: Marina Alves, conforme o caso fictício
+motivo: registrar o resultado que ela busca, sem tratá-lo como medido
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: Marina quer que a montagem da semana leve menos de meia hora; esse resultado ainda não foi cronometrado.
+autoriza_execucao: não
+```
+
+```registro
+id: R1
+tipo: restricao
+autor: Marina Alves, conforme o caso fictício
+motivo: preservar a regra fixada para o produto
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: O produto deve ser único e não pode ter versão exclusiva por cliente.
+autoridade_pra_mudar: Marina Alves, por escrito, na sessão
+pode_violar: não
+```
+
+```registro
+id: H1
+tipo: hipotese
+autor: agente
+motivo: propor um escopo inicial concreto apesar da falta de pesquisa sobre alternativas e uso
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: Um quadro web para organizar os plantões da semana pode ajudar clínicas pequenas a fechar a escala; a primeira versão pode apresentar uma semana de exemplo e permitir a organização dos plantões, mas isso precisa ser validado.
+status: não testada
+apoio: Marina descreveu o uso atual de grupo de mensagens e planilha; não há entrevistas nem uso observado.
+autoriza_execucao: não
+```
+
+```registro
+id: H2
+tipo: hipotese
+autor: agente
+motivo: avaliar um pedido do contato sem tratá-lo como aprovação confirmada ou prioridade decidida
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: A troca de plantão em um clique pode ser útil no produto compartilhado, mas a mensagem fictícia não confirma o pedido com Marina nem demonstra sua viabilidade, prazo ou prioridade.
+status: não testada
+apoio: mensagem fictícia atribuída à Clínica Norte; Marina ainda não respondeu e a sessão não confirmou a frase.
+autoriza_execucao: não
+```
+
+```registro
+id: PR1
+tipo: preferencia
+autor: Marina Alves, conforme o caso fictício
+motivo: registrar por onde ela prefere começar
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: Marina prefere começar por clínicas com até 15 profissionais numa capital.
+de_quem: dono
+autoriza_execucao: não
+autoriza_versao_exclusiva: não
+autoriza_violar_restricao: não
+autoriza_construir: não
+```
+
+```registro
+id: PR2
+tipo: preferencia
+autor: contato fictício da Clínica Norte, conforme a mensagem no caso
+motivo: registrar separadamente o pedido do contato por uma capacidade compartilhada
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: O contato fictício pede troca de plantão em um clique ainda este mês; Marina não confirmou o pedido.
+de_quem: cliente
+autoriza_execucao: não
+autoriza_versao_exclusiva: não
+autoriza_violar_restricao: não
+autoriza_construir: não
+```
+
+```registro
+id: PR3
+tipo: preferencia
+autor: contato fictício da Clínica Norte, conforme a mensagem no caso
+motivo: separar o pedido de exclusividade do pedido por uma capacidade do produto
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: O contato fictício pede uma versão exclusiva com o nome da clínica; o pedido não altera a restrição fixada por Marina.
+de_quem: cliente
+autoriza_execucao: não
+autoriza_versao_exclusiva: não
+autoriza_violar_restricao: não
+autoriza_construir: não
+```
+
+```registro
+id: F2
+tipo: fato
+autor: agente
+motivo: registrar o conteúdo e os limites do papel local sobre preço
+fonte: local: entrada/fonte-hipotetica.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: O papel local apresenta o preço fictício de R$ 89,00 por mês para uma ferramenta inventada e declara que não é anúncio real nem medida de mercado.
+autoriza_execucao: não
+```
+
+Dados ausentes: entrevistas, tamanho de mercado, lista conferida de concorrentes, pagamentos observados e confirmação da fala atribuída à Clínica Norte. Não há pesquisa de mercado nem comparação de alternativas realizada nesta resposta.

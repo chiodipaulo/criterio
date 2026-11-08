@@ -1,3 +1,104 @@
+# Critério
+
+Fork de [Product Engineering](https://github.com/phuryn/product-engineering), em português, no contexto brasileiro. O repositório é [chiodipaulo/criterio](https://github.com/chiodipaulo/criterio). São skills de agente, em pastas com `SKILL.md`. Não é um aplicativo, não pede uma API e não pede conta pra ser lido.
+
+O copyright do texto original é de Pawel Huryn, 2026. A licença é MIT e está inteira em [LICENSE.md](LICENSE.md). Paulo Chiodi mantém este fork. O fork não fala pelo upstream.
+
+O upstream traz 44 skills em 6 pacotes. Este fork acrescenta `registro`, que a pessoa inicia com `/product:registro` (Codex: `$product:registro`). Os slugs antigos ficam iguais. O caso de ponta a ponta é [Escala Miúda](product/skills/registro/references/exemplo-escala-miuda.md), marcado como fictício. O mapa, as decisões e as fases seguintes estão em [docs/escopo.md](docs/escopo.md).
+
+Este fork não promete funcionar em qualquer modelo. É versão experimental. A revisão humana é obrigatória. As únicas saídas de modelo são gpt-6.1-sol e gpt-6-luna, no Codex CLI 0.164.0, provider openai, texto inline, uma vez por caso e por rodada. gpt-6-luna não está homologada. Lint e conferidor não aprovam o sentido do texto.
+
+## Instalar este fork
+
+O marketplace deste fork se chama `criterio`. O dono do manifesto é Paulo Chiodi, no endereço do repositório. Não há e-mail inventado nesse manifesto. O texto dos skills e a licença continuam de Pawel Huryn.
+
+Quem já usa o upstream deixa o marketplace `product-engineering` vindo de `phuryn/product-engineering`. Quem instalou uma cópia antiga deste fork com esse mesmo nome interno tira essa cópia antes de adicionar a nova, senão os dois brigam pelo nome. O comando visto no Claude Code 2.1.311, em 08/11/2026, é `claude plugin marketplace remove product-engineering`. Quem quiser os dois, upstream e fork, consegue porque agora os nomes são diferentes.
+
+Estes comandos instalam este fork. A instalação limpa e a atualização foram feitas num `HOME` isolado desta máquina, a partir do checkout cujo origin é `github.com/chiodipaulo/criterio`. Nenhum plugin foi instalado numa conta de pessoa e nenhum modelo foi chamado.
+
+```bash
+claude plugin marketplace add chiodipaulo/criterio
+claude plugin install product@criterio
+claude plugin install ai-shipping@criterio
+claude plugin install agent-teams@criterio
+claude plugin install agent-harness@criterio
+claude plugin install app-stack@criterio
+claude plugin install work-humanizer@criterio
+```
+
+Atualizar o fork, no mesmo CLI:
+
+```bash
+claude plugin marketplace update criterio
+claude plugin update product@criterio
+```
+
+```bash
+codex plugin marketplace add chiodipaulo/criterio
+codex plugin add product@criterio
+```
+
+```bash
+npx skills add chiodipaulo/criterio
+```
+
+O texto original, lido neste repositório em 08/11/2026, diz que `npx skills` pede Node.js 22.20 ou mais novo. Isso não foi executado aqui.
+
+Sem esses programas, copie a pasta `skills/<nome>` do pacote pra a pasta que o seu agente lê. O texto original nomeia `.agents/skills/`, `.claude/skills/`, `.cursor/skills/` e `~/.gemini/skills/`. Cada skill funciona na pasta dele. Com a pasta copiada, o comando é `/registro` ou `$registro`.
+
+Os comandos do texto original instalam `phuryn/product-engineering`, não este fork.
+
+## O que foi exercitado
+
+| Caminho | Status | O que aconteceu nesta adaptação |
+|---|---|---|
+| Leitura de SKILL.md como texto | testado aqui | O validador de estrutura e os testes do fork rodaram sobre os arquivos. Nenhum modelo foi chamado. |
+| Instalação limpa e atualização | testado aqui | `HOME` isolado, Claude Code 2.1.311, marketplace `criterio` a partir do checkout com origin `github.com/chiodipaulo/criterio`. `product@criterio` resolveu o skill `registro`. Update no mesmo `HOME`. Sem conta e sem modelo. |
+| Claude Code numa sessão de pessoa | só documentado | Nenhum plugin entrou na conta de alguém. O teste de instalação usou um `HOME` vazio da VM. |
+| Manifesto claude plugin validate | testado aqui | Claude Code 2.1.311 em 08/11/2026, sem conta. Passou com os avisos de versão que o upstream deixa de propósito. Nenhuma sessão carregou plugin. |
+| Codex | só documentado | Comandos acima, no formato do upstream. O CLI não estava neste ambiente. |
+| Gemini CLI | só documentado | Só a cópia de pasta que o texto original descreve. Nenhum comando Gemini foi executado. |
+| API, fornecedor ou conta | não suportado | Ler o texto não exige isso. |
+| Ferramenta universal | não suportado | `app-stack` e `agent-teams` continuam presos aos produtos nomeados neles. |
+| Lint como prova semântica | não suportado | Estrutura válida não é obediência de modelo. |
+| Uso comportamental com modelos | experimental fechada, revisão humana obrigatória | Só gpt-6.1-sol e gpt-6-luna, Codex CLI 0.164.0, provider openai, texto inline, N=1. Sol passou estrutura e critérios aplicáveis, com ressalva semântica no adversário. Luna não está homologada. Saídas em `avaliacao/criterio/v1/saida`, `avaliacao/criterio/v2/saida` e `avaliacao/criterio/v3/saida`. Relato em `avaliacao/criterio/FECHO.md`. Não é suporte geral. |
+
+## Fronteira
+
+| Tipo | O que entra | O que não entra |
+|---|---|---|
+| Portátil | Texto em `SKILL.md` e em `references/pt-br.md`. O pacote `product` inteiro, com `registro`, `start-here`, `propose` e os skills de mercado usados no exemplo. `work-humanizer` é texto mais um script Python local. | Chamada de CLI e conta de fornecedor. |
+| Preso a CLI | `agent-teams` dirige Codex, Grok e Claude Code. O revisor padrão de `ai-shipping` chama um desses CLIs. Os hooks de `agent-harness` são do Claude Code. | Um jeito único de chamar qualquer modelo. |
+| Preso a fornecedor | `app-stack` assume Next.js, Supabase, Clerk e Netlify. Dois skills usam a API da Anthropic. | Reescrita como stack universal. |
+
+O inglês desses pacotes presos fica como está. O roteiro em português desta entrega cobre o fluxo de descoberta até a permissão.
+
+## Pacotes
+
+| Pacote | Texto | Execução |
+|---|---|---|
+| product | inglês do upstream, mais `registro` e uma ponte em `start-here` e em `propose` | texto portátil. `propose` ainda cita extras do Claude |
+| ai-shipping | inglês | método em texto. O revisor padrão do upstream chama Grok ou Claude Code |
+| agent-teams | inglês | CLIs do Codex, do Grok e do Claude Code |
+| agent-harness | inglês | hooks de guardrail do Claude Code |
+| app-stack | inglês | Next.js, Supabase, Clerk e Netlify. Dois skills usam a API da Anthropic |
+| work-humanizer | inglês | texto e um script Python, sem fornecedor |
+
+Os casos do autor original continuam em [CASE-STUDIES.md](CASE-STUDIES.md) e no texto em inglês abaixo. Não foram retraduzidos.
+
+## Atualização
+
+Não há atualização automática. Uma atualização é um diff do upstream lido à mão. A entrada em português, `docs/escopo.md`, o skill `registro`, as pontes em `start-here` e `propose`, e os avisos dos pacotes presos a provedor não se apagam pra copiar o upstream por cima. `main` deste fork é o que um marketplace instalado serve depois que uma pessoa mescla. Este trabalho não mescla e não vai ao upstream.
+
+## Atribuição
+
+Texto original e licença por Pawel Huryn, 2026, MIT, arquivo [LICENSE.md](LICENSE.md). Fork Critério por Paulo Chiodi, em [chiodipaulo/criterio](https://github.com/chiodipaulo/criterio). Upstream em [phuryn/product-engineering](https://github.com/phuryn/product-engineering).
+
+## Texto original do upstream
+
+Os comandos do texto original instalam `phuryn/product-engineering`, não este fork. O bloco abaixo fica byte a byte como estava na origem deste fork.
+
+<!-- upstream-readme -->
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](https://github.com/phuryn/product-engineering/blob/main/LICENSE.md)
 [![Tests](https://github.com/phuryn/product-engineering/actions/workflows/tests.yml/badge.svg)](https://github.com/phuryn/product-engineering/actions/workflows/tests.yml)
 [![Companion: pm-skills](https://img.shields.io/badge/companion-pm--skills-blue)](https://github.com/phuryn/pm-skills)

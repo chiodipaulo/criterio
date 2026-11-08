@@ -5,6 +5,10 @@ description: "Exploring customer segments, audiences or new markets: 3-5 segment
 
 # Market Segments
 
+### Fork Critério
+
+Este skill é texto portátil. Ele não chama um CLI. No trabalho em português, siga `references/pt-br.md`. O inglês abaixo fica como origem.
+
 ## Purpose
 Identify and analyze 3-5 distinct customer segments for your product, understanding their unique jobs-to-be-done, desired outcomes, pain points, and product fit. Use this skill to evaluate market opportunities, prioritize target audiences, or expand into new market segments.
 

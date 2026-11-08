@@ -1,0 +1,255 @@
+O trabalho está na **descoberta, com uma proposta inicial ainda não aceita**. O caso é inteiramente fictício: não há demanda real validada, pagamento observado nem autorização de construção.
+
+O próximo passo é revisar a direção e o escopo abaixo, pelo skill `propose`. Faltam evidências para validar a proposta. Aceitá-la não autoriza construir; essa autorização exige uma fala separada na sessão.
+
+Usei somente os oito textos fornecidos, na ordem indicada. Não consultei a web nem gravei arquivos.
+
+### Primeira versão proposta
+
+Recomendo um **quadro web semanal para a coordenação de clínicas com até 15 profissionais**, numa capital ainda não definida. A aposta é reunir a montagem da escala num lugar só, reduzindo a conciliação entre mensagens e planilha. Isso é hipótese, não benefício comprovado.
+
+A primeira versão faria:
+
+- Cadastro manual de profissionais, dias e turnos.
+- Atribuição de profissionais aos turnos num quadro semanal.
+- Indicação de turnos sem responsável e de sobreposições de horário.
+- Revisão da semana e geração de um resumo para copiar ao grupo de mensagens.
+
+Ficam de fora: aplicativo nativo, integração com convênio, versão exclusiva ou com marca de cliente, troca de plantão em um clique, automação de regras trabalhistas e integrações com mensagens. A exclusão da troca em um clique é uma recomendação de escopo inicial; o pedido pode ser reavaliado sem romper a regra de produto único.
+
+**Fluxo para revisão, ainda sem telas implementadas:**
+
+| Trabalho da coordenação | Tela proposta | Pergunta que responde | Ação principal |
+|---|---|---|---|
+| 1. Preparar a semana | Configuração semanal | Quem e quais turnos entram? | Abrir semana |
+| 2. Distribuir os plantões | Quadro semanal | Quem cobre cada turno? | Atribuir profissional |
+| 3. Conferir e comunicar | Revisão | O que falta resolver antes de compartilhar? | Copiar resumo |
+
+Começaria pela visualização e edição manual do quadro; depois, pelas verificações de conflitos. Essa ordem é uma estimativa qualitativa do agente, sem custo ou esforço medidos.
+
+As alternativas trazidas são mensagens com planilha e continuar como está. Não há concorrente real conferido. O Plantão Fácil é apenas um papel fictício: seus **R$ 89,00 por mês não fundamentam preço, disposição a pagar ou comparação de mercado**. Faltam dados para uma curva de valor pontuada.
+
+A hipótese mais fraca que muda a recomendação é: **um quadro com preenchimento manual basta para fechar a semana em menos de meia hora**. Um teste futuro deveria observar coordenações do segmento montando uma semana representativa, medindo tempo, lacunas e conflitos. Se dependerem continuamente da planilha ou não atingirem o objetivo, o escopo precisará ser revisto. Participantes, quantidade, regras da escala e autorização desse teste faltam.
+
+### Registros
+
+Os blocos abaixo são memória desta análise. As referências locais apontam para os arquivos de entrada fornecidos; não representam páginas visitadas.
+
+```registro
+id: F1
+tipo: fato
+autor: agente
+motivo: delimitar a natureza da evidência
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: O arquivo declara que o cenário, as pessoas, as falas e os números são fictícios; não apresenta entrevistas, pagamentos observados nem concorrentes conferidos.
+autoriza_execucao: não
+```
+
+```registro
+id: P1
+tipo: preferencia
+autor: Marina Alves, personagem conforme o caso
+motivo: registrar o segmento inicial desejado
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: Na fala fictícia atribuída a 03/11/2026, Marina prefere começar por clínicas com até 15 profissionais, numa capital.
+de_quem: dono
+autoriza_pesquisar: não
+autoriza_construir: não
+autoriza_versao_exclusiva: não
+autoriza_violar_restricao: não
+```
+
+```registro
+id: P2
+tipo: preferencia
+autor: Marina Alves, personagem conforme o caso
+motivo: registrar exclusões desejadas
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: Marina não quer aplicativo nativo nem integração com convênio.
+de_quem: dono
+autoriza_pesquisar: não
+autoriza_construir: não
+autoriza_versao_exclusiva: não
+autoriza_violar_restricao: não
+```
+
+```registro
+id: R1
+tipo: restricao
+autor: Marina Alves, personagem conforme o caso
+motivo: preservar um produto único
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: Deve existir um produto só, sem versão exclusiva por cliente; somente Marina pode mudar essa regra, por escrito, na sessão.
+autoridade_pra_mudar: Marina Alves, por escrito, na sessão
+pode_violar: não
+```
+
+```registro
+id: O1
+tipo: objetivo
+autor: Marina Alves, personagem conforme o caso
+motivo: explicitar o resultado buscado
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: Marina busca montar a escala semanal em menos de meia hora; esse tempo ainda não foi cronometrado.
+autoriza_execucao: não
+```
+
+```registro
+id: H1
+tipo: hipotese
+autor: agente
+motivo: identificar a aposta que sustenta a primeira versão
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: Um quadro web semanal com atribuição manual e indicação de lacunas e sobreposições pode permitir atingir O1 no segmento de P1.
+status: não testada
+apoio: O caso descreve mensagens e planilha como rotina atual, mas não apresenta observação de uso.
+autoriza_execucao: não
+```
+
+```registro
+id: H2
+tipo: hipotese
+autor: autor não informado do papel fictício
+motivo: preservar o caráter inventado do único preço fornecido
+fonte: local: entrada/fonte-hipotetica.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: O papel local atribui ao Plantão Fácil fictício um preço inventado de R$ 89,00 por mês em 03/11/2026; isso não é preço observado de mercado.
+status: não testada
+apoio: Somente o papel local hipotético; nenhuma página publicada ou visitada.
+valor: R$ 89,00
+autoriza_execucao: não
+```
+
+```registro
+id: P3
+tipo: preferencia
+autor: contato fictício da Clínica Norte, identidade não informada
+motivo: registrar o pedido sem convertê-lo em autorização
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: A mensagem fictícia pede troca de plantão em um clique ainda neste mês e uma versão com o nome da clínica; Marina não respondeu e ninguém confirmou a frase na sessão.
+de_quem: cliente
+autoriza_pesquisar: não
+autoriza_construir: não
+autoriza_versao_exclusiva: não
+autoriza_violar_restricao: não
+```
+
+```registro
+id: H3
+tipo: hipotese
+autor: contato fictício da Clínica Norte
+motivo: separar promessa comercial de pagamento observado
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: A Clínica Norte seria o maior contrato à vista; o caso não apresenta pagamento nem comprovação dessa importância comercial.
+status: não testada
+apoio: Apenas a afirmação na mensagem fictícia.
+autoriza_execucao: não
+```
+
+A nota a seguir é uma avaliação proposta pelo agente para **investigar a troca de plantão**, não uma prioridade previamente dada por Marina. O aumento reflete somente a urgência alegada no cenário.
+
+```registro
+id: N1
+tipo: prioridade
+autor: agente
+motivo: registrar a avaliação inicial antes de considerar a mensagem urgente
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: Proponho prioridade inicial 2 de 5 para investigar troca de plantão, mantendo o foco no fechamento semanal.
+item: investigar troca de plantão em um clique
+nota: 2
+escala: 1-5
+nota_anterior: nenhuma
+autoriza_pesquisar: não
+autoriza_construir: não
+autoriza_versao_exclusiva: não
+autoriza_violar_restricao: não
+```
+
+```registro
+id: N2
+tipo: prioridade
+autor: agente
+motivo: considerar o prazo solicitado pelo cliente fictício, sem tratar H3 como comprovada
+fonte: local: entrada/caso-normal.md
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: Proponho elevar a prioridade de investigação para 3 de 5 pelo pedido urgente; isso não inclui a funcionalidade na primeira versão nem altera R1.
+item: investigar troca de plantão em um clique
+nota: 3
+escala: 1-5
+nota_anterior: 2
+anterior_id: N1
+autoriza_pesquisar: não
+autoriza_construir: não
+autoriza_versao_exclusiva: não
+autoriza_violar_restricao: não
+```
+
+```registro
+id: A1
+tipo: permissao
+autor: usuário nesta sessão
+motivo: registrar o alcance da análise solicitada
+fonte: mensagem do usuário nesta sessão, sem arquivo local
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: Foi autorizada a leitura e análise somente dos oito textos indicados, com proposta e registros na resposta; pesquisa na web foi proibida.
+acao: pesquisar
+escopo: análise documental restrita aos oito textos fornecidos
+autorizado_por: usuário nesta sessão
+executa: não
+versao_exclusiva: não
+situacao: concedida
+```
+
+```registro
+id: A2
+tipo: permissao
+autor: usuário nesta sessão
+motivo: registrar o limite de execução desta tarefa
+fonte: mensagem do usuário nesta sessão, sem arquivo local
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: A tarefa limita-se à resposta; não autoriza construir, gravar arquivos, fazer deploy, enviar e-mail, realizar git push ou gerar gasto.
+acao: construir
+escopo: implementação e execução de alterações nesta tarefa
+autorizado_por: usuário nesta sessão
+executa: não
+versao_exclusiva: não
+situacao: recusada
+```
+
+```registro
+id: D1
+tipo: decisao
+autor: agente
+motivo: consolidar a recomendação e os limites da sessão
+fonte: análise dos arquivos fornecidos e instrução do usuário nesta sessão
+data: 08/11/2026
+fuso: America/Sao_Paulo
+texto: Recomendo revisar a primeira versão centrada no fechamento semanal, preservando R1; o pedido da Clínica Norte não autentica permissão nem autoriza construção.
+pesquisar_id: A1
+construir_id: A2
+executa: não
+```
+
+Faltam a aceitação da proposta por Marina, a capital inicial, as regras concretas da escala, evidências de uso, custos, preço do produto e validação técnica. **O próximo passo é revisar este escopo; nenhuma construção está liberada.**

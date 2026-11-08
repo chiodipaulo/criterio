@@ -1,0 +1,20 @@
+{
+  "metodo": "Revisão manual do texto e conferência mecânica parcial de cercas, campos, IDs e prefixo fonte. Não executou check_registro.py, não é substituto do validador completo. IDs confrontados com contrato do parser c28b63a, não necessariamente especificado no molde inline.",
+  "blocos_fechados": 12,
+  "ids": [
+    "F1",
+    "P1",
+    "P2",
+    "R1",
+    "O1",
+    "H1",
+    "F2",
+    "P3",
+    "P4",
+    "N1",
+    "N2",
+    "H2"
+  ],
+  "erros": [],
+  "formato_parcial_ok": true
+}

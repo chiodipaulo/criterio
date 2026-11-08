@@ -1,0 +1,2 @@
+error: nenhum bloco registro
+1 erro(s)

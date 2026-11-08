@@ -1,0 +1,12 @@
+{
+  "comando": [
+    "python3",
+    "ferramentas/check_registro.py",
+    "--base",
+    ".",
+    "saida/openai-gpt-6-luna-adversario/stdout.txt"
+  ],
+  "cwd": "/workspace/criterio-avaliacao/v3",
+  "exit_code": 1,
+  "modo_exemplo": false
+}

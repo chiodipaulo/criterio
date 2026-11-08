@@ -1,12 +1,14 @@
 # app-stack — build a SaaS with coding agents
 
+> **Fork Critério.** Este pacote continua em Next.js, Supabase, Clerk e Netlify. Dois skills de agente embutido usam a API da Anthropic. O fork não trata este pacote como ferramenta universal. O texto abaixo segue em inglês, como no upstream.
+
 Next.js (App Router) + Supabase + Clerk + Netlify, from an idea to a product in production. The rules were learned on real products; each states its principle first, so most carry to another stack.
 
 ## Install
 
 ```bash
-claude plugin marketplace add phuryn/product-engineering
-claude plugin install app-stack@product-engineering
+claude plugin marketplace add chiodipaulo/criterio
+claude plugin install app-stack@criterio
 ```
 
 Codex, Cursor and other agents: see the collection's root `README.md`.

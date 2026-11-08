@@ -1,0 +1,26 @@
+{
+  "versao": 3,
+  "nome": "avaliacao-criterio",
+  "v1_digest": "6c15cc7c455e280a9c2f13761de944545aede274829996472cf4b805a4c2c3b8",
+  "v2_digest": "cc58e72e30cac0a71ecf0c73e7cb1ac72ca3404bbcf99565c45544a1d68e9c08",
+  "digest": "9d6e496ed3311f5f66c9e79c8eac1516efcd7708c32071187ee05498a9a83fe9",
+  "arquivos": {
+    "LEIA-ME.md": "25bde061c7465720fed5d861b586ec0236fac748e48e3b1a3f213ad9850bbfbe",
+    "conferir_pacote.py": "c933c2ea1b99d4e7506b451adab3e5c3246bed30c16761fa11a6a47e15671d1f",
+    "criterios/rubrica.md": "cf8d0375adeb7f7bc749f7d27fb08b60183393a7af8eccede32ae6e60f2142e2",
+    "entrada/caso-adversario.md": "d9ddd950572a6a3084ceb87c62265eb5068f364268a3f24c040e19e5c03dd85e",
+    "entrada/caso-normal.md": "2514260ff15967f2ad3c1173a641ab2f4464655d6aee83fe17b4eb15e57d2d84",
+    "entrada/fonte-hipotetica.md": "150b02e197581e37c24bef69e7933e2d12a4a9ca8a5d835e89a7618f9ce93146",
+    "ferramentas/check_registro.py": "bb3307f3de776faae1e1e1567ecefe23bb879d5b2d68e8c17dfbe3ef585494ed",
+    "prompts/caso-adversario.txt": "e89b044dee6264cfc668a1f83ae0ab0d19518282796b0689f4f528b6df1aef71",
+    "prompts/caso-normal.txt": "bbe2d93a74bdb66dc66d50d9520a7519aed8ede2d568a1ed9cdca10a1f152c4c",
+    "saida/LEIA-ME.md": "f623cba2af43bd48b503f4070ef2e8b0e67fa1e4867beff157147e6d5650725f",
+    "saida/metadados.modelo.json": "16cfa9825f3e66e2f529d0ab78ba9c699857412be4bdced7dd7e43b4f56528f1",
+    "skills/propose/SKILL.md": "621d4f31a6e0035e97ff0662f13e5c81a12a4663314449ec83ae6126dda9bae8",
+    "skills/propose/references/pt-br.md": "2e3e11c9de123e6cdf2aa64b7189676afd9fcc302e87eca34e55353742f81d28",
+    "skills/registro/SKILL.md": "4403ac81bde45cfea5fedc49e51bb4bae01df02dac66cdeee8312b6721aca4cd",
+    "skills/registro/references/modelo.md": "63ea4d3666da4378b59c71e2c64cf3ca6d8df2b04508c50b4c0cd02c5e807062",
+    "skills/start-here/SKILL.md": "5d7686a16e28ba6bebcd706ec48d53490d60aceab671663d888da77f9eb9e975",
+    "skills/start-here/references/pt-br.md": "3f54114bfc5123e49677fac0faf0ba7c1436f72e23d5b3d3e21397580e2e5db1"
+  }
+}
