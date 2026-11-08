@@ -26,22 +26,48 @@ def block(tipo, extra, motivo="mostrar o formato", ident=None):
     return BASE.format(id=ident or "R1", tipo=tipo, motivo=motivo, extra=extra)
 
 
-def expect(label, text, needle, example=False):
-    errors = check_registro.check_text(text, example=example)
+def expect(label, text, needle, example=False, base_dir=None):
+    errors = check_registro.check_text(text, example=example, base_dir=base_dir)
     hit = any(needle in error for error in errors)
     print(("ok   " if hit else "FAIL ") + label + ("" if hit else (": expected %r in %s" % (needle, errors))))
     return 0 if hit else 1
 
 
-def expect_ok(label, text, example=False):
-    errors = check_registro.check_text(text, example=example)
+def expect_ok(label, text, example=False, base_dir=None):
+    errors = check_registro.check_text(text, example=example, base_dir=base_dir)
     print(("ok   " if not errors else "FAIL ") + label + ("" if not errors else (": " + " | ".join(errors))))
     return 0 if not errors else 1
 
 
+PR_FLAGS = (
+    "autoriza_versao_exclusiva: não\n"
+    "autoriza_violar_restricao: não\n"
+    "autoriza_construir: não\n"
+    "autoriza_pesquisar: não\n"
+    "texto: Pedido de troca aceito pela outra pessoa.\n"
+)
+
+
+def prioridade(ident, nota, anterior, extra=""):
+    return block(
+        "prioridade",
+        "item: Pedido de troca\nnota: %s\nescala: 1-5\nnota_anterior: %s\n%s%s"
+        % (nota, anterior, PR_FLAGS, extra),
+        ident=ident,
+    )
+
+
+def com_data(text, data):
+    return text.replace("data: 08/11/2026", "data: " + data, 1)
+
+
 def main():
     failures = 0
-    failures += expect_ok("fato mínimo passa", block("fato", "texto: Um preço publicado.\nautoriza_execucao: não\n", ident="E1"))
+    failures += expect_ok(
+        "fato mínimo passa",
+        block("fato", "texto: Um preço publicado.\nautoriza_execucao: não\n", ident="E1").replace(
+            "fonte: HIPOTÉTICO", "fonte: https://exemplo.invalid/preco"),
+    )
     failures += expect(
         "fato não autoriza execução",
         block("fato", "texto: Um preço publicado.\nautoriza_execucao: sim\n", ident="E1"),
@@ -59,7 +85,12 @@ def main():
     )
     failures += expect_ok(
         "valor em reais passa",
-        block("hipotese", "status: não testada\napoio: nenhum\nautoriza_execucao: não\nvalor: R$ 49,00 por mês\n", ident="H1"),
+        block(
+            "hipotese",
+            "status: não testada\napoio: nenhum\nautoriza_execucao: não\n"
+            "valor: R$ 49,00 por mês\ntexto: Coordenadoras pagariam esse valor por mês.\n",
+            ident="H1",
+        ),
     )
     failures += expect(
         "restrição sem autoridade é recusada",
@@ -142,13 +173,107 @@ def main():
     )
     failures += expect("uma permissão não cobre pesquisar e construir", same + "\n" + decision, "mesma permissão")
 
+    inicio = com_data(prioridade("PR0", "2", "nenhuma"), "03/11/2026")
+    seguinte = prioridade("PR1", "4", "2", "anterior_id: PR0\n")
+    failures += expect_ok("cadeia de prioridade com o registro inicial", inicio + "\n" + seguinte)
+    failures += expect("nota 4 sem o registro da nota 2", prioridade("PR1", "4", "2"), "registro anterior")
+    failures += expect("nota nenhuma não é uma nota", prioridade("PR9", "nenhuma", "nenhuma"), "nota")
+    errada = prioridade("PR1", "4", "3", "anterior_id: PR0\n")
+    failures += expect("nota anterior não bate com o registro ligado", inicio + "\n" + errada, "não é a nota")
+    outro_item = prioridade("PR1", "4", "2", "anterior_id: PR0\n").replace(
+        "item: Pedido de troca", "item: Outro item", 1)
+    failures += expect("cadeia com item diferente", inicio + "\n" + outro_item, "item")
+    cedo = com_data(prioridade("PR1", "4", "2", "anterior_id: PR0\n"), "01/11/2026")
+    failures += expect("data da nota nova antes da nota ligada", inicio + "\n" + cedo, "ordem")
+    dois = com_data(prioridade("PR8", "1", "nenhuma"), "02/11/2026")
+    failures += expect("dois inícios pro mesmo item", inicio + "\n" + dois, "início")
+
+    failures += expect(
+        "registro sem texto",
+        block("fato", "autoriza_execucao: não\nfonte: https://exemplo.invalid/preco\n", ident="E9").replace(
+            "fonte: HIPOTÉTICO\n", ""),
+        "texto",
+    )
+    failures += expect(
+        "fuso que não é IANA",
+        block("fato", "texto: Um preço publicado na página.\nautoriza_execucao: não\n", ident="E8").replace(
+            "America/Sao_Paulo", "Brasil"),
+        "fuso",
+    )
+    failures += expect(
+        "fato sem fonte rastreável",
+        block("fato", "texto: Um preço publicado na página.\nautoriza_execucao: não\n", ident="E7"),
+        "fonte",
+    )
+    failures += expect_ok(
+        "fato com URL rastreável",
+        block("fato", "texto: Um preço publicado na página.\nautoriza_execucao: não\n", ident="E6").replace(
+            "fonte: HIPOTÉTICO", "fonte: https://exemplo.invalid/preco"),
+    )
+    import tempfile
+    tmp = tempfile.mkdtemp()
+    open(os.path.join(tmp, "preco.md"), "w", encoding="utf-8").write("FICTÍCIO R$ 89,00\n")
+    local_ok = block(
+        "fato", "texto: Um preço publicado na página.\nautoriza_execucao: não\n", ident="E5",
+    ).replace("fonte: HIPOTÉTICO", "fonte: local: preco.md")
+    failures += expect_ok("fato com arquivo local", local_ok, base_dir=tmp)
+    local_bad = local_ok.replace("fonte: local: preco.md", "fonte: local: nao-existe.md")
+    failures += expect("fato com arquivo local ausente", local_bad, "fonte", base_dir=tmp)
+    escapa = local_ok.replace("fonte: local: preco.md", "fonte: local: ../preco.md")
+    failures += expect("fonte local não sai da pasta", escapa, "fonte", base_dir=tmp)
+
+    if not hasattr(check_registro, "render_html"):
+        print("FAIL render_html ausente")
+        failures += 1
+    else:
+        amostra = block(
+            "fato", "texto: Um preço publicado na página.\nautoriza_execucao: não\n", ident="E4",
+        ).replace("fonte: HIPOTÉTICO", "fonte: https://exemplo.invalid/preco")
+        md_records, md_errors = check_registro.parse_blocks(amostra)
+        failures += expect_ok("amostra markdown pra round-trip", amostra)
+        html = check_registro.render_html(md_records)
+        html_records, html_errors = check_registro.parse_blocks(html)
+        same_records = check_registro.same_records(md_records, html_records)
+        if md_errors or html_errors or not same_records:
+            print("FAIL round-trip HTML: md=%s html=%s iguais=%s" % (md_errors, html_errors, same_records))
+            failures += 1
+        else:
+            print("ok   round-trip markdown e HTML")
+        de_novo, de_novo_erros = check_registro.parse_blocks(check_registro.render_markdown(html_records))
+        if de_novo_erros or not check_registro.same_records(md_records, de_novo):
+            print("FAIL round-trip de volta ao markdown")
+            failures += 1
+        else:
+            print("ok   HTML volta ao markdown equivalente")
+        duplicado = amostra + "\n" + html
+        failures += expect("markdown e HTML no mesmo arquivo", duplicado, "duas representações")
+
+    frase = check_registro.COMPARACAO_DE_TEXTO_NAO_AUTENTICA
+    for rel in ("../SKILL.md", "../references/modelo.md"):
+        corpo = open(os.path.join(os.path.dirname(__file__), rel), encoding="utf-8").read()
+        if frase not in corpo:
+            print("FAIL documentação sem o limite da comparação de texto: " + rel)
+            failures += 1
+        else:
+            print("ok   limite da comparação de texto em " + rel)
+    caixa = block(
+        "restricao",
+        "texto: Texto novo, mesma barra.\nautoridade_pra_mudar: a dona do produto\n"
+        "pode_violar: não\nsubstitui: R1\nautoridade_citada: A dona do produto\n",
+        ident="R2",
+    )
+    failures += expect("maiúscula diferente não é a autoridade", old + "\n" + caixa, "autoridade_citada")
+
     example = os.path.join(os.path.dirname(__file__), "..", "references", "exemplo-escala-miuda.md")
     if not os.path.isfile(example):
         print("FAIL exemplo ausente: " + example)
         failures += 1
     else:
         text = open(example, encoding="utf-8").read()
-        failures += expect_ok("exemplo completo passa", text, example=True)
+        failures += expect_ok(
+            "exemplo completo passa", text, example=True,
+            base_dir=os.path.dirname(example),
+        )
 
     print("%s failure(s)" % failures)
     return 1 if failures else 0
