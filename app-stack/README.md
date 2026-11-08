@@ -7,8 +7,8 @@ Next.js (App Router) + Supabase + Clerk + Netlify, from an idea to a product in 
 ## Install
 
 ```bash
-claude plugin marketplace add phuryn/product-engineering
-claude plugin install app-stack@product-engineering
+claude plugin marketplace add chiodipaulo/criterio
+claude plugin install app-stack@criterio
 ```
 
 Codex, Cursor and other agents: see the collection's root `README.md`.

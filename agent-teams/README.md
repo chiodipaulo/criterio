@@ -7,8 +7,8 @@ A delegate is a partner, not a tool: it gets the why, not just the what. These s
 ## Install
 
 ```bash
-claude plugin marketplace add phuryn/product-engineering
-claude plugin install agent-teams@product-engineering
+claude plugin marketplace add chiodipaulo/criterio
+claude plugin install agent-teams@criterio
 ```
 
 Codex, Cursor and other agents: see the collection's root `README.md`.

@@ -10,23 +10,32 @@ Este fork não promete funcionar em qualquer modelo. Lint não mostra que um mod
 
 ## Instalar este fork
 
-O nome interno do marketplace continua `product-engineering`, igual ao upstream, pra não reescrever os slugs `pacote@product-engineering` espalhados nos skills. Não instale este fork e o upstream ao mesmo tempo. Os dois usam o nome interno `product-engineering`.
+O marketplace deste fork se chama `criterio`. O dono do manifesto é Paulo Chiodi, no endereço do repositório. Não há e-mail inventado nesse manifesto. O texto dos skills e a licença continuam de Pawel Huryn.
 
-Estes comandos são o formato que o texto original documenta, apontados pra este repositório. Não foram executados aqui.
+Quem já usa o upstream deixa o marketplace `product-engineering` vindo de `phuryn/product-engineering`. Quem instalou uma cópia antiga deste fork com esse mesmo nome interno tira essa cópia antes de adicionar a nova, senão os dois brigam pelo nome. O comando visto no Claude Code 2.1.311, em 08/11/2026, é `claude plugin marketplace remove product-engineering`. Quem quiser os dois, upstream e fork, consegue porque agora os nomes são diferentes.
+
+Estes comandos instalam este fork. A instalação limpa e a atualização foram feitas num `HOME` isolado desta máquina, a partir do checkout cujo origin é `github.com/chiodipaulo/criterio`. Nenhum plugin foi instalado numa conta de pessoa e nenhum modelo foi chamado.
 
 ```bash
 claude plugin marketplace add chiodipaulo/criterio
-claude plugin install product@product-engineering
-claude plugin install ai-shipping@product-engineering
-claude plugin install agent-teams@product-engineering
-claude plugin install agent-harness@product-engineering
-claude plugin install app-stack@product-engineering
-claude plugin install work-humanizer@product-engineering
+claude plugin install product@criterio
+claude plugin install ai-shipping@criterio
+claude plugin install agent-teams@criterio
+claude plugin install agent-harness@criterio
+claude plugin install app-stack@criterio
+claude plugin install work-humanizer@criterio
+```
+
+Atualizar o fork, no mesmo CLI:
+
+```bash
+claude plugin marketplace update criterio
+claude plugin update product@criterio
 ```
 
 ```bash
 codex plugin marketplace add chiodipaulo/criterio
-codex plugin add product@product-engineering
+codex plugin add product@criterio
 ```
 
 ```bash
@@ -44,13 +53,24 @@ Os comandos do texto original instalam `phuryn/product-engineering`, não este f
 | Caminho | Status | O que aconteceu nesta adaptação |
 |---|---|---|
 | Leitura de SKILL.md como texto | testado aqui | O validador de estrutura e os testes do fork rodaram sobre os arquivos. Nenhum modelo foi chamado. |
-| Claude Code | só documentado | Comandos acima, no formato do upstream. Nenhum plugin foi instalado numa sessão. |
+| Instalação limpa e atualização | testado aqui | `HOME` isolado, Claude Code 2.1.311, marketplace `criterio` a partir do checkout com origin `github.com/chiodipaulo/criterio`. `product@criterio` resolveu o skill `registro`. Update no mesmo `HOME`. Sem conta e sem modelo. |
+| Claude Code numa sessão de pessoa | só documentado | Nenhum plugin entrou na conta de alguém. O teste de instalação usou um `HOME` vazio da VM. |
 | Manifesto claude plugin validate | testado aqui | Claude Code 2.1.311 em 08/11/2026, sem conta. Passou com os avisos de versão que o upstream deixa de propósito. Nenhuma sessão carregou plugin. |
 | Codex | só documentado | Comandos acima, no formato do upstream. O CLI não estava neste ambiente. |
 | Gemini CLI | só documentado | Só a cópia de pasta que o texto original descreve. Nenhum comando Gemini foi executado. |
 | API, fornecedor ou conta | não suportado | Ler o texto não exige isso. |
 | Ferramenta universal | não suportado | `app-stack` e `agent-teams` continuam presos aos produtos nomeados neles. |
 | Lint como prova semântica | não suportado | Estrutura válida não é obediência de modelo. |
+
+## Fronteira
+
+| Tipo | O que entra | O que não entra |
+|---|---|---|
+| Portátil | Texto em `SKILL.md` e em `references/pt-br.md`. O pacote `product` inteiro, com `registro`, `start-here`, `propose` e os skills de mercado usados no exemplo. `work-humanizer` é texto mais um script Python local. | Chamada de CLI e conta de fornecedor. |
+| Preso a CLI | `agent-teams` dirige Codex, Grok e Claude Code. O revisor padrão de `ai-shipping` chama um desses CLIs. Os hooks de `agent-harness` são do Claude Code. | Um jeito único de chamar qualquer modelo. |
+| Preso a fornecedor | `app-stack` assume Next.js, Supabase, Clerk e Netlify. Dois skills usam a API da Anthropic. | Reescrita como stack universal. |
+
+O inglês desses pacotes presos fica como está. O roteiro em português desta entrega cobre o fluxo de descoberta até a permissão.
 
 ## Pacotes
 

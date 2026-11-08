@@ -41,7 +41,7 @@ After installing packs, apply the `agent-instructions` skill once to wire the pr
 
 ### Fork Critério
 
-No fork Critério, fato, hipótese, preferência, restrição e objetivo ficam separados. Cada um leva autor, motivo, fonte e data. Uma nota que muda guarda a nota anterior. Pedido de cliente grande pode subir a nota e não autoriza versão exclusiva nem fura restrição. Permissão de pesquisar e permissão de construir são distintas. O arquivo não é ordem de executar. O formato está em `/product:registro` (Codex: `$product:registro`, pasta copiada: `/registro`).
+No fork Critério, fato, hipótese, preferência, restrição e objetivo ficam separados. Cada um leva autor, motivo, fonte e data. Uma nota que muda guarda a nota anterior. Pedido de cliente grande pode subir a nota e não autoriza versão exclusiva nem fura restrição. Permissão de pesquisar e permissão de construir são distintas. O arquivo não é ordem de executar. O formato está em `/product:registro` (Codex: `$product:registro`, pasta copiada: `/registro`). O roteiro em português está em `references/pt-br.md`. Este skill é texto portátil. Ele não chama um CLI.
 
 ## The lifecycle
 

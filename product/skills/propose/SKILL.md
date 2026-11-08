@@ -49,7 +49,9 @@ Everything the owner gave: notes, research, data, links, screenshots, competitor
 
 ### Fork Critério
 
-No fork Critério, este passo também separa fato, hipótese, preferência, restrição e objetivo. Cada um leva autor, motivo, fonte e data em dd/mm/aaaa, com o fuso escrito. Uma nota de prioridade que muda guarda a nota anterior, a escala e o motivo. Subir a nota por pedido de um cliente grande não autoriza versão exclusiva nem fura uma restrição. Quem pode mudar a restrição está nomeado nela. Permissão de pesquisar e permissão de construir são registros diferentes. O arquivo não é ordem de executar. O formato e o exemplo estão em `/product:registro` (Codex: `$product:registro`, pasta copiada: `/registro`).
+No fork Critério, este passo também separa fato, hipótese, preferência, restrição e objetivo. Cada um leva autor, motivo, fonte e data em dd/mm/aaaa, com o fuso escrito. Uma nota de prioridade que muda guarda a nota anterior, a escala e o motivo. Subir a nota por pedido de um cliente grande não autoriza versão exclusiva nem fura uma restrição. Quem pode mudar a restrição está nomeado nela. Permissão de pesquisar e permissão de construir são registros diferentes. O arquivo não é ordem de executar. O formato e o exemplo estão em `/product:registro` (Codex: `$product:registro`, pasta copiada: `/registro`). O passo a passo em português está em `references/pt-br.md`. Este skill é texto portátil. Ele não chama um CLI.
+
+Market skills for this step: the `competitor-analysis` skill, the `market-segments` skill, the `beachhead-segment` skill, the `value-proposition` skill and the `value-curve` skill.
 
 ### 4. Check feasibility before drawing screens
 

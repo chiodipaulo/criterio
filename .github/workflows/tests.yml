@@ -31,3 +31,5 @@ jobs:
         env:
           VALIDATE_STRICT: "1"
         run: python -B tools/validate.py
+      - name: Install the fork in an isolated home
+        run: python -B tools/test_install_criterio.py

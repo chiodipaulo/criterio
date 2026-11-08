@@ -1,12 +1,11 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "product-engineering",
+  "name": "criterio",
   "version": "1.0.0",
-  "description": "Agent skills for shipping real products with coding agents, from the first idea to paying users. No coding.",
+  "description": "Fork Critério de Product Engineering, texto de Pawel Huryn sob a licença MIT. Skills em texto no contexto brasileiro. Não promete funcionar em qualquer modelo.",
   "owner": {
-    "name": "Paweł Huryn",
-    "email": "pawel@productcompass.pm",
-    "url": "https://www.productcompass.pm"
+    "name": "Paulo Chiodi",
+    "url": "https://github.com/chiodipaulo/criterio"
   },
   "plugins": [
     {

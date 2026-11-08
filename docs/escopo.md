@@ -6,18 +6,22 @@ Isto não é um aplicativo. São 6 pacotes e 44 skills do upstream, mais o skill
 
 ## O que foi lido
 
-Cada pacote é um plugin em `.claude-plugin/marketplace.json`, com a pasta em `./<pacote>` e sem ref. O nome interno do marketplace continua `product-engineering`. Um install lê a branch padrão. Por isso `main` é o que passa a valer se alguém mesclar. Este trabalho abre pull request e não mescla.
+Cada pacote é um plugin em `.claude-plugin/marketplace.json`, com a pasta em `./<pacote>` e sem ref. O nome interno deste fork é `criterio`. O upstream continua `product-engineering`. Um install lê a branch padrão. Por isso `main` é o que passa a valer se alguém mesclar. Este trabalho abre pull request e não mescla.
 
-Há quatro jeitos de instalar, todos descritos pelo README de origem:
+Há quatro jeitos de instalar:
 
-- Claude Code, com `claude plugin marketplace add` e `claude plugin install <pacote>@product-engineering`
-- Codex, com os comandos `codex plugin` equivalentes
-- `npx skills add`, que o mesmo README diz pedir Node.js 22.20 ou mais novo
+- Claude Code, com `claude plugin marketplace add chiodipaulo/criterio` e `claude plugin install <pacote>@criterio`
+- Codex, com os comandos `codex plugin` equivalentes. O CLI não foi executado aqui
+- `npx skills add chiodipaulo/criterio`, que o README de origem diz pedir Node.js 22.20 ou mais novo. Não foi executado aqui
 - Cópia da pasta do skill pra `.agents/skills/`, `.claude/skills/`, `.cursor/skills/` ou `~/.gemini/skills/`
 
 O texto do skill é o caminho portátil. Os outros jeitos dependem do programa que a pessoa já tem. Este fork não exige uma API, um fornecedor nem uma conta pra ler o texto.
 
 As descrições dos skills que o agente carrega sozinho somam 5993 caracteres no validador, com teto de 6000 em `tools/validate.py`. Não cabe mais um skill automático. `registro` é iniciado pela pessoa, com `disable-model-invocation: true` e `agents/openai.yaml`. Os slugs do upstream não mudam.
+
+## Fronteira
+
+Texto portátil é o pacote `product`, com `registro`, `start-here`, `propose` e os skills de mercado do exemplo, mais `work-humanizer`. Preso a CLI é `agent-teams` e o revisor padrão de `ai-shipping`, além dos hooks de `agent-harness`. Preso a fornecedor é `app-stack`. Os dois últimos não foram reescritos como ferramenta universal.
 
 ## Onde o kit está preso a um provedor
 
@@ -34,29 +38,40 @@ As descrições dos skills que o agente carrega sozinho somam 5993 caracteres no
 
 ## Decisões desta fase
 
-- A entrada da pessoa é o README em português. O README de origem fica no mesmo arquivo, depois do marcador `<!-- upstream-readme -->`, byte a byte.
-- O marketplace não troca de nome. Trocar o nome espalharia `product@product-engineering` pelos skills e quebraria o texto de origem. Os dois marketplaces, upstream e fork, não devem ficar instalados juntos, porque o nome interno é o mesmo.
+- A entrada da pessoa é o README em português. O README de origem fica no mesmo arquivo, depois do marcador `<!-- upstream-readme -->`, byte a byte. Os comandos que instalam este fork estão antes do marcador e usam `@criterio`.
+- O marketplace se chama `criterio`. O mantenedor no manifesto é Paulo Chiodi, só com o endereço do repositório, sem e-mail inventado. A licença e o autor do texto continuam Pawel Huryn. Quem tinha o nome antigo `product-engineering` neste fork tira com `claude plugin marketplace remove product-engineering` antes de adicionar `chiodipaulo/criterio`.
 - O caso Escala Miúda é inteiro fictício. Não há depoimento real nem métrica real.
 - Data dd/mm/aaaa e real no formato `R$ 1.490,00` valem no `registro`. O fuso do exemplo é America/Sao_Paulo. Outro produto escreve o fuso dele.
 - Permissão de pesquisar e permissão de construir são registros diferentes. Nota mais alta por cliente grande não autoriza versão exclusiva, não fura restrição e não autoriza construir. O arquivo não executa.
 
 ## O que foi conferido
 
-Em 08/11/2026 rodaram `python -B tools/test_criterio.py`, `python -B product/skills/registro/scripts/test_check_registro.py` e `python -B tools/validate.py`. O comando `claude plugin validate` passou no Claude Code 2.1.311, sem conta, com os avisos de versão que o upstream já deixa de propósito. Codex, Gemini CLI e `npx skills` não rodaram. Nenhum modelo foi chamado.
+Em 08/11/2026, nesta VM, com `HOME` isolado quando houve instalação:
 
-## Fase 1, neste pull request
+| Comando | Resultado |
+|---|---|
+| `python -B tools/test_criterio.py` | estrutura, licença, matriz, roteiros em português |
+| `python -B product/skills/registro/scripts/test_check_registro.py` | cadeia de nota, HTML, fuso, fonte, texto |
+| `python -B tools/validate.py` | 40 de 45 skills automáticos, teto de 6000 |
+| `claude plugin validate .` | Claude Code 2.1.311, sem conta, avisos de versão que o kit deixa de propósito |
+| `python -B tools/test_install_criterio.py` | instalação limpa e update de `product@criterio`, skill `registro` resolvido, origin `github.com/chiodipaulo/criterio` |
 
-- README de entrada, com atribuição, upstream, política de atualização, instalação e a matriz do que foi testado, do que está só documentado e do que não é suportado
-- Skill `registro`, molde, exemplo e script de conferência
-- Ponte curta em `start-here` e em `propose`
-- Aviso no topo dos pacotes presos a provedor
-- Testes do script e testes da estrutura do fork, no workflow
+Codex CLI, Gemini CLI e `npx skills` não rodaram. Nenhum modelo foi chamado. Nenhuma conta de pessoa recebeu plugin.
+
+## Fase 1 entregue
+
+- README de entrada, atribuição, migração do nome antigo e matriz do que foi testado
+- Marketplace `criterio`, sem e-mail inventado
+- Skill `registro`, molde HTML e markdown, exemplo com reais e datas brasileiras, cadeia de prioridade
+- Roteiro em português de `start-here`, `propose`, `competitor-analysis`, `market-segments`, `beachhead-segment`, `value-proposition` e `value-curve`, com o inglês conservado
+- Fronteira entre texto portátil, CLI e fornecedor
+- Testes no workflow
 
 ## Fases seguintes
 
-1. Traduzir o resto de `propose` e o molde da proposta, sem apagar o inglês
-2. Traduzir `competitor-analysis`, `market-segments`, `beachhead-segment`, `value-proposition`, `value-curve` e `growth-loops`
-3. Deixar `app-stack`, `agent-teams` e os scripts de CLI em inglês, marcados como estão
+1. Traduzir `growth-loops` e o resto do ciclo que hoje fica no inglês de `start-here`, como bug, plano e release
+2. Traduzir o miolo inglês que sobrou dentro de `propose` além do roteiro em português
+3. Deixar `app-stack`, `agent-teams` e os scripts de CLI em inglês, já marcados
 4. Quando o upstream mudar, ler o diff à mão. Não há sync automático. A camada do fork não se apaga pra ficar igual ao upstream
 
 ## Fora deste trabalho

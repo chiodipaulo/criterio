@@ -7,8 +7,8 @@ The machinery around the agent: instructions met at the moment they apply, rules
 ## Install
 
 ```bash
-claude plugin marketplace add phuryn/product-engineering
-claude plugin install agent-harness@product-engineering
+claude plugin marketplace add chiodipaulo/criterio
+claude plugin install agent-harness@criterio
 ```
 
 Codex, Cursor and other agents: see the collection's root `README.md`.

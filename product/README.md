@@ -9,8 +9,8 @@ Before an agent builds anything: who it is for, what they need that nothing serv
 ## Install
 
 ```bash
-claude plugin marketplace add phuryn/product-engineering
-claude plugin install product@product-engineering
+claude plugin marketplace add chiodipaulo/criterio
+claude plugin install product@criterio
 ```
 
 Codex, Cursor and other agents: see the collection's root `README.md`.

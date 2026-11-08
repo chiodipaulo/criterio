@@ -20,7 +20,7 @@ Read the rest of the repository as context, above all the rest of each skill the
 
 ## Who uses it, and what is serious
 
-The repository is public at `phuryn/product-engineering`. Anyone can read every file and install the packs. Its readers are product managers, founders and builders shipping software with coding agents, from a solo builder to a small team. Their agents read the skills and act on them.
+This checkout is the Critério fork, public at `chiodipaulo/criterio`. Upstream stays at `phuryn/product-engineering`. Anyone can read every file and install the packs. Its readers are product managers, founders and builders shipping software with coding agents, from a solo builder to a small team. Their agents read the skills and act on them.
 
 Serious, however unusual the trigger:
 

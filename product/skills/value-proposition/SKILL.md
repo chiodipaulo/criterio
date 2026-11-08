@@ -4,6 +4,10 @@ description: "Creating or testing a value proposition: the 6-part form (Who, Why
 ---
 # Value Proposition
 
+### Fork Critério
+
+Este skill é texto portátil. Ele não chama um CLI. No trabalho em português, siga `references/pt-br.md`. O inglês abaixo fica como origem.
+
 ## Metadata
 - **Name**: value-proposition
 - **Description**: Generate a detailed value proposition using a 6-part template with JTBD framing. Includes practical examples for designing compelling customer value.

@@ -4,6 +4,10 @@ description: "Comparing a product with competitors or choosing what to be best a
 ---
 # Value Curve
 
+### Fork Critério
+
+Este skill é texto portátil. Ele não chama um CLI. No trabalho em português, siga `references/pt-br.md`. O inglês abaixo fica como origem.
+
 A value curve compares offerings on the factors one customer segment values. It comes from Blue Ocean Strategy (W. Chan Kim and Renée Mauborgne). Used here, it answers one question: **does our offering meet this segment's specific needs far better than anything else they can use?** A good strategy competes to be unique, not the best at everything.
 
 It is a starting point, not the whole answer. It feeds the Alternatives part of the value proposition (the `value-proposition` skill), and the value proposition needs all six parts.

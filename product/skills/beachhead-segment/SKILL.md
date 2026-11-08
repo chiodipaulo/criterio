@@ -4,6 +4,10 @@ description: "Choosing the first market or customer segment to win, scored on bu
 ---
 # Beachhead Segment
 
+### Fork Critério
+
+Este skill é texto portátil. Ele não chama um CLI. No trabalho em português, siga `references/pt-br.md`. O inglês abaixo fica como origem.
+
 ## Overview
 Identify the first beachhead market segment for product launch. This skill evaluates potential market segments against key criteria to find your initial winning segment that enables fast PMF validation and adjacent expansion.
 

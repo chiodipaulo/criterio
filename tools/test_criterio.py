@@ -7,6 +7,7 @@ These checks read files. They do not call a model and they do not treat a
 green run as proof that a model followed a skill.
 """
 import hashlib
+import json
 import os
 import re
 import sys
@@ -65,8 +66,9 @@ UPSTREAM_SKILLS = [
 
 MATRIX = {
     "Leitura de SKILL.md como texto": "testado aqui",
+    "Instalação limpa e atualização": "testado aqui",
     "Manifesto claude plugin validate": "testado aqui",
-    "Claude Code": "só documentado",
+    "Claude Code numa sessão de pessoa": "só documentado",
     "Codex": "só documentado",
     "Gemini CLI": "só documentado",
     "API, fornecedor ou conta": "não suportado",
@@ -92,7 +94,9 @@ PHRASES = [
     "Este fork não promete funcionar em qualquer modelo.",
     "Nenhum modelo foi chamado",
     "Não há atualização automática.",
-    "Não instale este fork e o upstream ao mesmo tempo.",
+    "claude plugin marketplace remove product-engineering",
+    "product@criterio",
+    "Portátil",
     "`registro`",
     "/product:registro",
     "docs/escopo.md",
@@ -321,7 +325,9 @@ def main():
     sys.path.insert(0, os.path.join(ROOT, "product/skills/registro/scripts"))
     import check_registro  # noqa: E402
     example = read("product/skills/registro/references/exemplo-escala-miuda.md")
-    errors = check_registro.check_text(example, example=True)
+    errors = check_registro.check_text(
+        example, example=True, base_dir=os.path.dirname(os.path.join(ROOT, "product/skills/registro/references/exemplo-escala-miuda.md"))
+    )
     if errors:
         failures += fail("exemplo: " + " | ".join(errors))
     else:
@@ -332,6 +338,44 @@ def main():
         failures += fail("product/README.md não lista registro")
     else:
         failures += ok("pacote product lista registro")
+
+    market = json.loads(read(".claude-plugin/marketplace.json"))
+    if market.get("name") != "criterio":
+        failures += fail("marketplace name %r" % market.get("name"))
+    owner = market.get("owner") or {}
+    if owner.get("name") != "Paulo Chiodi" or owner.get("url") != "https://github.com/chiodipaulo/criterio":
+        failures += fail("owner do marketplace %r" % owner)
+    if "email" in owner:
+        failures += fail("owner do marketplace tem e-mail")
+    if market.get("name") == "criterio" and "email" not in owner:
+        failures += ok("marketplace criterio sem e-mail inventado")
+    plugins = {item["name"] for item in market.get("plugins", [])}
+    if plugins != {"product", "ai-shipping", "agent-teams", "agent-harness", "app-stack", "work-humanizer"}:
+        failures += fail("plugins %s" % sorted(plugins))
+
+    ptbr = [
+        "product/skills/start-here/references/pt-br.md",
+        "product/skills/propose/references/pt-br.md",
+        "product/skills/competitor-analysis/references/pt-br.md",
+        "product/skills/market-segments/references/pt-br.md",
+        "product/skills/beachhead-segment/references/pt-br.md",
+        "product/skills/value-proposition/references/pt-br.md",
+        "product/skills/value-curve/references/pt-br.md",
+    ]
+    for rel in ptbr:
+        text = read(rel)
+        skill = rel.split("/references/")[0] + "/SKILL.md"
+        if "references/pt-br.md" not in read(skill):
+            failures += fail("%s não aponta o roteiro" % skill)
+        prose = strip_fences(text)
+        if "R$" not in text or "dd/mm/aaaa" not in text:
+            failures += fail("%s sem reais ou data brasileira" % rel)
+        if ";" in prose or re.search(r"\bpara\b", prose, flags=re.I):
+            failures += fail("%s com para ou ponto e vírgula" % rel)
+        if "texto portátil" not in text:
+            failures += fail("%s sem a fronteira portátil" % rel)
+    if all(os.path.isfile(os.path.join(ROOT, rel)) for rel in ptbr):
+        failures += ok("roteiros em português do fluxo")
 
     print("%s failure(s)" % failures)
     return 1 if failures else 0

@@ -21,8 +21,8 @@ For a repo that keeps its docs and coverage map by hand as intent, `document-app
 ## Install
 
 ```bash
-claude plugin marketplace add phuryn/product-engineering
-claude plugin install ai-shipping@product-engineering
+claude plugin marketplace add chiodipaulo/criterio
+claude plugin install ai-shipping@criterio
 ```
 
 Codex and other agents: see the collection's root `README.md`. Any skill can be started by name: `/ai-shipping:<skill>` in Claude Code, `$ai-shipping:<skill>` in Codex. All but `ship-check` also start on their own when the work matches.
