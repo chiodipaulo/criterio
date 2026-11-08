@@ -58,6 +58,10 @@ Em 08/11/2026, nesta VM, com `HOME` isolado quando houve instalação:
 
 Codex CLI, Gemini CLI e `npx skills` não rodaram. Nenhum modelo foi chamado. Nenhuma conta de pessoa recebeu plugin.
 
+## Runtime de modelos
+
+Pendente. Em 08/11/2026, nesta VM, `claude auth status` mostrou `loggedIn` false no Claude Code 2.1.311. `codex`, `gemini` e `grok` não estavam no PATH. Não houve compra de plano nem colagem de chave. O pacote pra uma rodada igual entre modelos é `avaliacao/criterio/v1`. Sem stdout bruto em `saida/`, ninguém marca modelo como testado. O merge segue suspenso até esse uso, como Paulo pediu.
+
 ## Fase 1 entregue
 
 - README de entrada, atribuição, migração do nome antigo e matriz do que foi testado

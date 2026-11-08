@@ -10,6 +10,7 @@ import hashlib
 import json
 import os
 import re
+import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -74,6 +75,7 @@ MATRIX = {
     "API, fornecedor ou conta": "não suportado",
     "Ferramenta universal": "não suportado",
     "Lint como prova semântica": "não suportado",
+    "Uso comportamental com modelos": "pendente",
 }
 
 BANNERS = [
@@ -104,6 +106,7 @@ PHRASES = [
     "Os comandos do texto original instalam `phuryn/product-engineering`, não este fork.",
     "claude plugin validate",
     "2.1.311",
+    "avaliacao/criterio/v1",
 ]
 
 def _word(*parts):
@@ -244,6 +247,9 @@ def main():
     for dirpath, dirnames, filenames in os.walk(ROOT):
         if ".git" in dirpath.split(os.sep):
             continue
+        rel_dir = os.path.relpath(dirpath, ROOT)
+        if rel_dir == "avaliacao" or rel_dir.startswith("avaliacao" + os.sep):
+            continue
         if "SKILL.md" in filenames and os.path.basename(os.path.dirname(dirpath)) == "skills":
             skill_mds.append(os.path.relpath(os.path.join(dirpath, "SKILL.md"), ROOT))
     if len(skill_mds) != 45:
@@ -376,6 +382,22 @@ def main():
             failures += fail("%s sem a fronteira portátil" % rel)
     if all(os.path.isfile(os.path.join(ROOT, rel)) for rel in ptbr):
         failures += ok("roteiros em português do fluxo")
+
+    bundle = os.path.join(ROOT, "avaliacao/criterio/v1")
+    checked = subprocess.run(
+        [sys.executable, os.path.join(bundle, "conferir_pacote.py")],
+        cwd=bundle, text=True, capture_output=True,
+    )
+    if checked.returncode != 0:
+        failures += fail("pacote de avaliação: " + (checked.stdout + checked.stderr).strip())
+    else:
+        failures += ok("digest do pacote de avaliação")
+    for prompt_name in ("caso-normal.txt", "caso-adversario.txt"):
+        prompt = read("avaliacao/criterio/v1/prompts/" + prompt_name)
+        if "criterios/" in prompt or "rubrica" in prompt:
+            failures += fail(prompt_name + " entrega a rubrica ao modelo")
+    if "exemplo-escala-miuda.md" in os.listdir(os.path.join(bundle, "skills/registro/references")):
+        failures += fail("o exemplo preenchido entrou no pacote do modelo")
 
     print("%s failure(s)" % failures)
     return 1 if failures else 0
