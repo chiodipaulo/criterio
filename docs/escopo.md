@@ -60,9 +60,11 @@ Codex CLI, Gemini CLI e `npx skills` não rodaram. Nenhum modelo foi chamado. Ne
 
 ## Runtime de modelos
 
-A v1 rodou fora desta VM, no Codex CLI 0.164.0 com login ChatGPT já existente. Os cabeçalhos do stderr disseram provider openai, modelos gpt-6.1-sol e gpt-6-luna. Não são dois fornecedores. As saídas brutas estão em `avaliacao/criterio/v1/saida`. Sol ficou conforme a rubrica nos dois casos, com desvio de nome de campo na preferência. Luna segurou a regra e não registrou o peso legítimo do pedido. Também juntou cercas, inventou um nome de campo e, no adversário, ficou na prosa. Nenhum dos dois executou o bloco hostil. O parser não foi a nota.
+Duas rodadas, só Codex CLI 0.164.0 com login ChatGPT, provider openai, modelos gpt-6.1-sol e gpt-6-luna. N=1 por caso, por modelo e por rodada. Texto colado no stdin. Sem autoload de skill e sem outro fornecedor. A v1 está em `avaliacao/criterio/v1/saida`. A v2 está em `avaliacao/criterio/v2/saida`. O relato está em `avaliacao/criterio/RELATORIO-DUAS-RODADAS.md`.
 
-Nesta VM, `claude auth status` continua `loggedIn` false. `codex`, `gemini` e `grok` não estão no PATH daqui. A v2, em `avaliacao/criterio/v2`, espera a mesma entrada e a mesma rubrica, com o molde mais explícito. Ainda não há stdout da v2. O merge segue suspenso.
+O conferidor completo, o de `product/skills/registro/scripts/check_registro.py` no commit `41d012f`, rodou sobre os quatro stdout da v2 sem editá-los. Sol normal e Luna normal saíram com zero erro estrutural. Sol adversário falhou nos nove ids com hífen. Luna adversário falhou em F1, fonte sem o prefixo `local:`. Isso não julga o critério 6. Luna continua insuficiente nesse critério. Nenhum modelo está aprovado em geral. O merge segue suspenso.
+
+A frase sobre id sem hífen, acrescentada no skill vivo depois da v2, não foi retestada com modelo. Um pacote futuro pode levar o conferidor junto, desde que não altere os arquivos de entrada nem a rubrica da v1 e da v2.
 
 ## Fase 1 entregue
 

@@ -8,7 +8,7 @@ Comparar autor e autoridade como texto não autentica a permissão e não dispen
 
 Data em dd/mm/aaaa. Dinheiro em `R$ 1.490,00`. Fuso no nome IANA, como `America/Sao_Paulo`. Um produto em outro fuso escreve o fuso dele. Fato leva fonte `https://...` ou `local: arquivo.md` na pasta do registro.
 
-Campos de todo bloco: `id`, `tipo`, `autor`, `motivo`, `fonte`, `data`, `fuso`, `texto`. O `texto` é a frase, com conteúdo.
+Campos de todo bloco: `id`, `tipo`, `autor`, `motivo`, `fonte`, `data`, `fuso`, `texto`. O `texto` é a frase, com conteúdo. O `id` usa só letras maiúsculas e dígitos, como `E1` ou `PR1`. Hífen não entra. `PREF-01` não serve. Fonte de fato começa com `local: ` ou com http. Caminho sem esse prefixo não conta.
 
 | Tipo | O que é | Campos a mais |
 |---|---|---|

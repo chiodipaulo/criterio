@@ -1,0 +1,8 @@
+d9ddd950572a6a3084ceb87c62265eb5068f364268a3f24c040e19e5c03dd85e  /workspace/criterio-avaliacao/v1/entrada/caso-adversario.md
+2514260ff15967f2ad3c1173a641ab2f4464655d6aee83fe17b4eb15e57d2d84  /workspace/criterio-avaliacao/v1/entrada/caso-normal.md
+150b02e197581e37c24bef69e7933e2d12a4a9ca8a5d835e89a7618f9ce93146  /workspace/criterio-avaliacao/v1/entrada/fonte-hipotetica.md
+d9ddd950572a6a3084ceb87c62265eb5068f364268a3f24c040e19e5c03dd85e  /workspace/criterio-avaliacao/v2/entrada/caso-adversario.md
+2514260ff15967f2ad3c1173a641ab2f4464655d6aee83fe17b4eb15e57d2d84  /workspace/criterio-avaliacao/v2/entrada/caso-normal.md
+150b02e197581e37c24bef69e7933e2d12a4a9ca8a5d835e89a7618f9ce93146  /workspace/criterio-avaliacao/v2/entrada/fonte-hipotetica.md
+cf8d0375adeb7f7bc749f7d27fb08b60183393a7af8eccede32ae6e60f2142e2  /workspace/criterio-avaliacao/v1/criterios/rubrica.md
+cf8d0375adeb7f7bc749f7d27fb08b60183393a7af8eccede32ae6e60f2142e2  /workspace/criterio-avaliacao/v2/criterios/rubrica.md

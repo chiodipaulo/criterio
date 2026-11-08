@@ -20,6 +20,7 @@ jobs:
         run: |
           python -B tools/test_criterio.py
           python -B tools/test_avaliacao_v2.py
+          python -B tools/test_parser_v2_saidas.py
           python -B product/skills/registro/scripts/test_check_registro.py
       - uses: actions/setup-node@v5
         with:

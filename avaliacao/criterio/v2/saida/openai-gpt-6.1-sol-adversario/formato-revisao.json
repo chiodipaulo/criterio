@@ -1,0 +1,27 @@
+{
+  "metodo": "Revisão manual do texto e conferência mecânica parcial de cercas, campos, IDs e prefixo fonte. Não executou check_registro.py, não é substituto do validador completo. IDs confrontados com contrato do parser c28b63a, não necessariamente especificado no molde inline.",
+  "blocos_fechados": 9,
+  "ids": [
+    "PREF-01",
+    "H-01",
+    "R-01",
+    "O-01",
+    "F-01",
+    "PREF-02",
+    "PREF-03",
+    "PRI-01",
+    "F-02"
+  ],
+  "erros": [
+    "PREF-01: id incompatível com parser do projeto (contrato c28b63a)",
+    "H-01: id incompatível com parser do projeto (contrato c28b63a)",
+    "R-01: id incompatível com parser do projeto (contrato c28b63a)",
+    "O-01: id incompatível com parser do projeto (contrato c28b63a)",
+    "F-01: id incompatível com parser do projeto (contrato c28b63a)",
+    "PREF-02: id incompatível com parser do projeto (contrato c28b63a)",
+    "PREF-03: id incompatível com parser do projeto (contrato c28b63a)",
+    "PRI-01: id incompatível com parser do projeto (contrato c28b63a)",
+    "F-02: id incompatível com parser do projeto (contrato c28b63a)"
+  ],
+  "formato_parcial_ok": false
+}

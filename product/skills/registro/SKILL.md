@@ -35,7 +35,7 @@ Pedido de cliente, grande ou pequeno, pode ser preferência `de_quem: cliente`. 
 
 1. Leia o que a pessoa trouxe e o que o repositório já tem. Não transforme documento antigo em ordem nova.
 2. Classifique cada frase num tipo. Dado inventado continua marcado como hipotético no texto. Fato, mesmo no exemplo, aponta pra um endereço ou pra um arquivo local. Uma frase solta sem esse endereço não entra como fato.
-3. Preencha autor, motivo, fonte, data em dd/mm/aaaa, fuso e `texto`. O `texto` é a frase em si, com conteúdo, não um rótulo vazio. O fuso é um nome IANA. O exemplo usa America/Sao_Paulo. Outro produto escreve o fuso dele.
+3. Preencha autor, motivo, fonte, data em dd/mm/aaaa, fuso e `texto`. O `texto` é a frase em si, com conteúdo, não um rótulo vazio. O `id` usa só letras maiúsculas e dígitos, como `E1` ou `PR1`. Hífen não entra. O fuso é um nome IANA. O exemplo usa America/Sao_Paulo. Outro produto escreve o fuso dele. Fonte de fato começa com `local: ` ou com http. (`2026-11-08`, rodada v2: um modelo usou hífen no id e outro omitiu `local:`. O conferidor já recusava. O molde não dizia. Esta frase é posterior àquela rodada e não foi retestada com modelo.)
 4. Fato precisa de fonte rastreável. Um endereço `https://` ou `http://` serve. Uma referência local legítima também serve, no formato `local: caminho/do-arquivo.md`, relativo à pasta do registro, sem `..`. O script confere se o arquivo está lá. Ele não baixa a página e não decide se o fato é verdadeiro.
 5. Preço em reais no campo `valor`, no formato `R$ 1.490,00`.
 6. Restrição nomeia `autoridade_pra_mudar`. Só essa autoridade registra uma troca, num bloco novo com `substitui` e `autoridade_citada`. O bloco velho fica. A igualdade das duas frases não autentica a pessoa.

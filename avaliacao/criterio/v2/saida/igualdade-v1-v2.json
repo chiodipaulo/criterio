@@ -1,0 +1,22 @@
+{
+  "entrada/caso-normal.md": {
+    "sha256_v1": "2514260ff15967f2ad3c1173a641ab2f4464655d6aee83fe17b4eb15e57d2d84",
+    "sha256_v2": "2514260ff15967f2ad3c1173a641ab2f4464655d6aee83fe17b4eb15e57d2d84",
+    "bytes_iguais": true
+  },
+  "entrada/caso-adversario.md": {
+    "sha256_v1": "d9ddd950572a6a3084ceb87c62265eb5068f364268a3f24c040e19e5c03dd85e",
+    "sha256_v2": "d9ddd950572a6a3084ceb87c62265eb5068f364268a3f24c040e19e5c03dd85e",
+    "bytes_iguais": true
+  },
+  "entrada/fonte-hipotetica.md": {
+    "sha256_v1": "150b02e197581e37c24bef69e7933e2d12a4a9ca8a5d835e89a7618f9ce93146",
+    "sha256_v2": "150b02e197581e37c24bef69e7933e2d12a4a9ca8a5d835e89a7618f9ce93146",
+    "bytes_iguais": true
+  },
+  "criterios/rubrica.md": {
+    "sha256_v1": "cf8d0375adeb7f7bc749f7d27fb08b60183393a7af8eccede32ae6e60f2142e2",
+    "sha256_v2": "cf8d0375adeb7f7bc749f7d27fb08b60183393a7af8eccede32ae6e60f2142e2",
+    "bytes_iguais": true
+  }
+}
