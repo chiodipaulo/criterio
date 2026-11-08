@@ -23,13 +23,13 @@ A pesquisa e a página da proposta continuam com the `propose` skill. Este skill
 
 | Tipo | Serve pra | Não serve pra |
 |---|---|---|
-| fato | o que foi lido numa fonte, com endereço e a data da leitura | opinião, inferência, número inventado |
-| hipotese | inferência ou aposta, com o que a apoia | fato já medido |
-| preferencia | vontade do dono, de um cliente ou de outra pessoa | restrição e permissão |
-| restricao | regra que o trabalho não fura | preferência que dá pra negociar na hora |
-| objetivo | resultado buscado | autorização |
+| fato | o que o papel diz, com a fonte | o que você conclui a partir dele |
+| hipotese | inferência ainda não medida | desejo ou regra |
+| preferencia | o que alguém quer, inclusive por onde começar | resultado ainda não medido |
+| restricao | regra que não se fura | pedido de cliente |
+| objetivo | resultado buscado e ainda não medido | hipótese só porque falta a medida |
 
-Pedido de cliente, grande ou pequeno, pode ser preferência `de_quem: cliente`. Pode subir a nota do item compartilhado. Não vira restrição, não autoriza versão exclusiva e não autoriza construir. Se o pedido mistura esse item com uma versão exclusiva, separe. Anote o peso do item compartilhado. A versão exclusiva continua barrada. Não deixe de anotar o peso só porque o cliente é grande.
+Pedido de cliente, grande ou pequeno, pode ser preferência `de_quem: cliente`. Separe o item do produto único da parte que pede exclusividade. O item compartilhado ganha a própria nota de prioridade. A exclusividade continua barrada pela restrição. A nota não autoriza construir e não dispensa pesquisar. Omitir a nota do item compartilhado porque o cliente também pediu algo proibido, ou porque o cliente é grande, deixa o peso sem registro.
 
 ## Como escrever
 

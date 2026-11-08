@@ -7,6 +7,7 @@ skill requires, that a priority score keeps its previous value, and that no
 record grants itself the right to execute.
 
     python <skill dir>/scripts/check_registro.py <file>
+    python <skill dir>/scripts/check_registro.py --base <pasta> <file>
     python <skill dir>/scripts/check_registro.py --example <file>
 """
 import datetime
@@ -462,15 +463,32 @@ def check_text(text, example=False, base_dir=None):
 
 def main(argv):
     example = False
+    base_dir = None
+    positional = []
     args = list(argv[1:])
-    if args and args[0] == "--example":
-        example = True
-        args = args[1:]
-    if len(args) != 1:
-        print("uso: check_registro.py [--example] <arquivo>", file=sys.stderr)
+    index = 0
+    while index < len(args):
+        item = args[index]
+        if item == "--example":
+            example = True
+            index += 1
+        elif item == "--base":
+            if index + 1 >= len(args):
+                print("uso: check_registro.py [--example] [--base <pasta>] <arquivo>", file=sys.stderr)
+                return 2
+            base_dir = args[index + 1]
+            index += 2
+        else:
+            positional.append(item)
+            index += 1
+    if len(positional) != 1:
+        print("uso: check_registro.py [--example] [--base <pasta>] <arquivo>", file=sys.stderr)
         return 2
-    text = open(args[0], encoding="utf-8").read()
-    errors = check_text(text, example=example, base_dir=os.path.dirname(os.path.abspath(args[0])))
+    path = positional[0]
+    if base_dir is None:
+        base_dir = os.path.dirname(os.path.abspath(path))
+    text = open(path, encoding="utf-8").read()
+    errors = check_text(text, example=example, base_dir=base_dir)
     for error in errors:
         print("error: " + error)
     if errors:

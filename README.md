@@ -6,7 +6,7 @@ O copyright do texto original é de Pawel Huryn, 2026. A licença é MIT e está
 
 O upstream traz 44 skills em 6 pacotes. Este fork acrescenta `registro`, que a pessoa inicia com `/product:registro` (Codex: `$product:registro`). Os slugs antigos ficam iguais. O caso de ponta a ponta é [Escala Miúda](product/skills/registro/references/exemplo-escala-miuda.md), marcado como fictício. O mapa, as decisões e as fases seguintes estão em [docs/escopo.md](docs/escopo.md).
 
-Este fork não promete funcionar em qualquer modelo. Lint não mostra que um modelo seguiu o texto. Nenhum modelo foi chamado nesta adaptação.
+Este fork não promete funcionar em qualquer modelo. É versão experimental. A revisão humana é obrigatória antes de tratar uma saída como aceita. As rodadas já feitas são só gpt-6.1-sol e gpt-6-luna, no Codex CLI, provider openai, texto inline, uma vez por caso. Lint não mostra que um modelo seguiu o texto. A v3 ainda não tem stdout.
 
 ## Instalar este fork
 
@@ -61,7 +61,7 @@ Os comandos do texto original instalam `phuryn/product-engineering`, não este f
 | API, fornecedor ou conta | não suportado | Ler o texto não exige isso. |
 | Ferramenta universal | não suportado | `app-stack` e `agent-teams` continuam presos aos produtos nomeados neles. |
 | Lint como prova semântica | não suportado | Estrutura válida não é obediência de modelo. |
-| Uso comportamental com modelos | v1 e v2 registradas, sem aprovação geral | Codex CLI 0.164.0, login ChatGPT, provider openai, gpt-6.1-sol e gpt-6-luna. N=1 por caso. Texto inline. Sem outro fornecedor. Saídas em `avaliacao/criterio/v1/saida` e `avaliacao/criterio/v2/saida`. Relato em `avaliacao/criterio/RELATORIO-DUAS-RODADAS.md`. Merge suspenso. |
+| Uso comportamental com modelos | v3 pendente | v1 e v2 estão em `avaliacao/criterio/v1/saida` e `avaliacao/criterio/v2/saida`, sem aprovação geral. A última rodada usa `avaliacao/criterio/v3`. Sem stdout da v3, o pacote não está aceito. Parser e CI não substituem essa rodada. |
 
 ## Fronteira
 

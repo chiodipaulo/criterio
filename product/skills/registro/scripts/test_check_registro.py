@@ -239,6 +239,23 @@ def main():
     escapa = local_ok.replace("fonte: local: preco.md", "fonte: local: ../preco.md")
     failures += expect("fonte local não sai da pasta", escapa, "fonte", base_dir=tmp)
 
+    pacote = tempfile.mkdtemp()
+    os.makedirs(os.path.join(pacote, "entrada"))
+    open(os.path.join(pacote, "entrada", "fonte.md"), "w", encoding="utf-8").write("FICTÍCIO\n")
+    fora = tempfile.mkdtemp()
+    saida = os.path.join(fora, "stdout.txt")
+    aberto = block(
+        "fato", "texto: Um preço publicado na página.\nautoriza_execucao: não\n", ident="E1",
+    ).replace("fonte: HIPOTÉTICO", "fonte: local: entrada/fonte.md")
+    open(saida, "w", encoding="utf-8").write(aberto)
+    sem_base = check_registro.main(["check_registro.py", saida])
+    com_base = check_registro.main(["check_registro.py", "--base", pacote, saida])
+    if sem_base == 0 or com_base != 0:
+        print("FAIL --base sem=%s com=%s" % (sem_base, com_base))
+        failures += 1
+    else:
+        print("ok   --base resolve fonte local fora da pasta da saída")
+
     if not hasattr(check_registro, "render_html"):
         print("FAIL render_html ausente")
         failures += 1

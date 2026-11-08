@@ -75,7 +75,7 @@ MATRIX = {
     "API, fornecedor ou conta": "não suportado",
     "Ferramenta universal": "não suportado",
     "Lint como prova semântica": "não suportado",
-    "Uso comportamental com modelos": "v1 e v2 registradas, sem aprovação geral",
+    "Uso comportamental com modelos": "v3 pendente",
 }
 
 BANNERS = [

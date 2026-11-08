@@ -21,7 +21,7 @@ Permissão de pesquisar e permissão de construir são pedidos separados. Uma no
 ## Ideia nova
 
 1. Leia o que a pessoa trouxe e o que o repositório já guarda.
-2. Não proponha construção. O próximo skill é `propose`.
+2. Não comece a construir. O próximo skill é `propose`. A proposta descreve uma primeira versão concreta, como hipótese, mesmo com dado faltando. Não invente medida. Um pedido de cliente no produto único pode pesar na nota. Uma versão exclusiva no mesmo pedido continua barrada. A nota não é permissão de construir.
 3. A pesquisa de mercado desse caminho usa alternativas, segmentos, cabeça de ponte, proposta de valor e curva de valor. Cada um tem roteiro em português na pasta `references/pt-br.md` do próprio skill.
 4. Preço em reais e data em dd/mm/aaaa. Número sem fonte não entra como fato.
 5. Quando a proposta estiver aceita, aí sim alguém pode pedir permissão de construir. Essa permissão é outra fala, na sessão, registrada depois.

@@ -64,7 +64,7 @@ Duas rodadas, só Codex CLI 0.164.0 com login ChatGPT, provider openai, modelos 
 
 O conferidor completo, o de `product/skills/registro/scripts/check_registro.py` no commit `41d012f`, rodou sobre os quatro stdout da v2 sem editá-los. Sol normal e Luna normal saíram com zero erro estrutural. Sol adversário falhou nos nove ids com hífen. Luna adversário falhou em F1, fonte sem o prefixo `local:`. Isso não julga o critério 6. Luna continua insuficiente nesse critério. Nenhum modelo está aprovado em geral. O merge segue suspenso.
 
-A frase sobre id sem hífen, acrescentada no skill vivo depois da v2, não foi retestada com modelo. Um pacote futuro pode levar o conferidor junto, desde que não altere os arquivos de entrada nem a rubrica da v1 e da v2.
+A v3 está em `avaliacao/criterio/v3`. Casos e rubrica são os mesmos bytes da v1. O conferidor vai junto, fora do prompt. A rodada ainda não aconteceu. Até o stdout chegar, o estado é pendente. Se um modelo continuar falhando, a limitação fica escrita. Não há nova rodada em seguida só pra obter uma resposta boa. O merge não é desta sessão.
 
 ## Fase 1 entregue
 
