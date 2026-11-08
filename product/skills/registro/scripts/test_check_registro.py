@@ -176,6 +176,23 @@ def main():
     inicio = com_data(prioridade("PR0", "2", "nenhuma"), "03/11/2026")
     seguinte = prioridade("PR1", "4", "2", "anterior_id: PR0\n")
     failures += expect_ok("cadeia de prioridade com o registro inicial", inicio + "\n" + seguinte)
+    mesmo_dia = prioridade("PR1", "4", "2", "anterior_id: PR0\n")
+    failures += expect_ok("cadeia legítima no mesmo dia", inicio.replace("03/11/2026", "08/11/2026") + "\n" + mesmo_dia)
+    meio = com_data(prioridade("PR1", "3", "2", "anterior_id: PR0\n"), "03/11/2026")
+    fim = prioridade("PR2", "4", "3", "anterior_id: PR1\n")
+    failures += expect_ok("cadeia legítima de três registros", com_data(prioridade("PR0", "2", "nenhuma"), "01/11/2026") + "\n" + meio + "\n" + fim)
+    auto = prioridade("PR1", "4", "4", "anterior_id: PR1\n")
+    failures += expect("autociclo de prioridade", auto, "ciclo")
+    ciclo_a = prioridade("PA", "4", "3", "anterior_id: PB\n")
+    ciclo_b = prioridade("PB", "3", "4", "anterior_id: PA\n")
+    failures += expect("ciclo de dois na mesma data", ciclo_a + "\n" + ciclo_b, "ciclo")
+    ciclo_1 = prioridade("P1", "4", "2", "anterior_id: P3\n")
+    ciclo_3 = prioridade("P3", "2", "3", "anterior_id: P2\n")
+    ciclo_2 = prioridade("P2", "3", "4", "anterior_id: P1\n")
+    failures += expect("ciclo de três", ciclo_1 + "\n" + ciclo_3 + "\n" + ciclo_2, "ciclo")
+    solto = prioridade("PR0", "2", "5")
+    filho = prioridade("PR1", "4", "2", "anterior_id: PR0\n")
+    failures += expect("cadeia sem início válido", solto + "\n" + filho, "não termina")
     failures += expect("nota 4 sem o registro da nota 2", prioridade("PR1", "4", "2"), "registro anterior")
     failures += expect("nota nenhuma não é uma nota", prioridade("PR9", "nenhuma", "nenhuma"), "nota")
     errada = prioridade("PR1", "4", "3", "anterior_id: PR0\n")
@@ -247,6 +264,52 @@ def main():
             print("ok   HTML volta ao markdown equivalente")
         duplicado = amostra + "\n" + html
         failures += expect("markdown e HTML no mesmo arquivo", duplicado, "duas representações")
+
+    def html_de(pairs):
+        rows = "\n".join("<dt>%s</dt><dd>%s</dd>" % pair for pair in pairs)
+        return "<article class=\"registro\">\n<dl>\n%s\n</dl>\n</article>" % rows
+
+    def md_com_chave_repetida(text, key, value):
+        return text.replace("\n```", "\n%s: %s\n```" % (key, value), 1)
+
+    fato_base = [
+        ("id", "E1"), ("tipo", "fato"), ("autor", "Marina Alves (FICTÍCIO)"),
+        ("motivo", "mostrar o formato"), ("fonte", "https://exemplo.invalid/preco"),
+        ("data", "08/11/2026"), ("fuso", "America/Sao_Paulo"),
+        ("texto", "Um preço publicado na página."), ("autoriza_execucao", "não"),
+    ]
+    nota_base = [
+        ("id", "PR0"), ("tipo", "prioridade"), ("autor", "Marina Alves (FICTÍCIO)"),
+        ("motivo", "mostrar o formato"), ("fonte", "HIPOTÉTICO"),
+        ("data", "08/11/2026"), ("fuso", "America/Sao_Paulo"),
+        ("texto", "Pedido de troca aceito pela outra pessoa."),
+        ("item", "Pedido de troca"), ("nota", "2"), ("escala", "1-5"),
+        ("nota_anterior", "nenhuma"), ("autoriza_versao_exclusiva", "não"),
+        ("autoriza_violar_restricao", "não"), ("autoriza_construir", "não"),
+        ("autoriza_pesquisar", "não"),
+    ]
+    perm_base = [
+        ("id", "PE1"), ("tipo", "permissao"), ("autor", "Marina Alves (FICTÍCIO)"),
+        ("motivo", "mostrar o formato"), ("fonte", "HIPOTÉTICO"),
+        ("data", "08/11/2026"), ("fuso", "America/Sao_Paulo"),
+        ("texto", "Permissão de construir ainda sem executar."),
+        ("acao", "construir"), ("escopo", "Nenhum escopo nesta prova."),
+        ("autorizado_por", "ninguém"), ("executa", "sim"), ("versao_exclusiva", "não"),
+        ("situacao", "recusada"),
+    ]
+    repetidos = (
+        ("id", fato_base, "E9"),
+        ("nota", nota_base, "5"),
+        ("executa", perm_base, "não"),
+        ("texto", fato_base, "Outro texto longo o bastante."),
+        ("fonte", fato_base, "https://exemplo.invalid/outra"),
+    )
+    for key, base, extra in repetidos:
+        md = check_registro.render_markdown([{k: v for k, v in base}])
+        md = md_com_chave_repetida(md, key, extra)
+        html_dup = html_de(base + [(key, extra)])
+        failures += expect("markdown recusa %s repetido" % key, md, "campo repetido")
+        failures += expect("HTML recusa %s repetido" % key, html_dup, "campo repetido")
 
     frase = check_registro.COMPARACAO_DE_TEXTO_NAO_AUTENTICA
     for rel in ("../SKILL.md", "../references/modelo.md"):

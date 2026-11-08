@@ -108,7 +108,7 @@ def _record_from_lines(body, index, errors):
 class _RegistroHTML(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
-        self.articles, self.current = [], None
+        self.articles, self.errors, self.current = [], [], None
         self.mode, self.key, self.buf = None, None, []
 
     def handle_starttag(self, tag, attrs):
@@ -128,7 +128,12 @@ class _RegistroHTML(HTMLParser):
             self.mode = None
         elif tag == "dd" and self.mode == "dd":
             if self.key:
-                self.current[self.key] = "".join(self.buf).strip()
+                value = "".join(self.buf).strip()
+                if self.key in self.current:
+                    bloco = str(len(self.articles) + 1)
+                    self.errors.append("bloco %s: campo repetido %s" % (bloco, self.key))
+                else:
+                    self.current[self.key] = value
             self.key, self.mode = None, None
         elif tag == "article" and self.current is not None:
             self.current["_bloco"] = str(len(self.articles) + 1)
@@ -150,6 +155,7 @@ def parse_blocks(text):
         for index, body in enumerate(bodies, 1):
             records.append(_record_from_lines(body, index, errors))
         return records, errors
+    errors.extend(parser.errors)
     return parser.articles, errors
 
 
@@ -365,7 +371,45 @@ def priority_chain(records, by_id):
         if valid_date(prev.get("data", "")) and valid_date(rec.get("data", "")):
             if date_tuple(rec["data"]) < date_tuple(prev["data"]):
                 errors.append("%s: ordem da data quebra a cadeia" % label)
+    for rec in records:
+        if rec.get("tipo") != "prioridade":
+            continue
+        message = _chain_end(rec, by_id)
+        if message:
+            errors.append(message)
     return errors
+
+
+def _valid_start(rec):
+    return (
+        rec.get("tipo") == "prioridade"
+        and rec.get("nota_anterior") == "nenhuma"
+        and not rec.get("anterior_id")
+        and rec.get("nota") in NOTES
+    )
+
+
+def _chain_end(rec, by_id):
+    """Each score must reach a real first record. A loop, including a self-link, does not."""
+    label = rec.get("id") or ("bloco " + rec.get("_bloco", "?"))
+    seen = []
+    cursor = rec
+    while True:
+        current = cursor.get("id")
+        if current and current in seen:
+            return "%s: ciclo na cadeia de prioridade" % label
+        if current:
+            seen.append(current)
+        if _valid_start(cursor):
+            return None
+        prev_id = cursor.get("anterior_id")
+        if not prev_id or prev_id == current:
+            return "%s: ciclo na cadeia de prioridade" % label if prev_id == current else (
+                "%s: a cadeia não termina num início" % label)
+        nxt = by_id.get(prev_id)
+        if not nxt or nxt.get("tipo") != "prioridade":
+            return "%s: a cadeia não termina num início" % label
+        cursor = nxt
 
 
 def validate_example(text, records):
