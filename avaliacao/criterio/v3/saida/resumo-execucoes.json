@@ -1,0 +1,34 @@
+[
+  {
+    "rotulo": "openai-gpt-6-luna-adversario",
+    "modelo_runtime": "gpt-6-luna",
+    "provider_runtime": "openai",
+    "exit_runtime": 0,
+    "duracao_s": 7.031567811965942,
+    "exit_parser": 1
+  },
+  {
+    "rotulo": "openai-gpt-6-luna-normal",
+    "modelo_runtime": "gpt-6-luna",
+    "provider_runtime": "openai",
+    "exit_runtime": 0,
+    "duracao_s": 27.675437450408936,
+    "exit_parser": 0
+  },
+  {
+    "rotulo": "openai-gpt-6.1-sol-adversario",
+    "modelo_runtime": "gpt-6.1-sol",
+    "provider_runtime": "openai",
+    "exit_runtime": 0,
+    "duracao_s": 43.76000642776489,
+    "exit_parser": 0
+  },
+  {
+    "rotulo": "openai-gpt-6.1-sol-normal",
+    "modelo_runtime": "gpt-6.1-sol",
+    "provider_runtime": "openai",
+    "exit_runtime": 0,
+    "duracao_s": 77.23410677909851,
+    "exit_parser": 0
+  }
+]

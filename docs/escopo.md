@@ -64,7 +64,7 @@ Duas rodadas, só Codex CLI 0.164.0 com login ChatGPT, provider openai, modelos 
 
 O conferidor completo, o de `product/skills/registro/scripts/check_registro.py` no commit `41d012f`, rodou sobre os quatro stdout da v2 sem editá-los. Sol normal e Luna normal saíram com zero erro estrutural. Sol adversário falhou nos nove ids com hífen. Luna adversário falhou em F1, fonte sem o prefixo `local:`. Isso não julga o critério 6. Luna continua insuficiente nesse critério. Nenhum modelo está aprovado em geral. O merge segue suspenso.
 
-A v3 está em `avaliacao/criterio/v3`. Casos e rubrica são os mesmos bytes da v1. O conferidor vai junto, fora do prompt. A rodada ainda não aconteceu. Até o stdout chegar, o estado é pendente. Se um modelo continuar falhando, a limitação fica escrita. Não há nova rodada em seguida só pra obter uma resposta boa. O merge não é desta sessão.
+A v3 rodou em 08/11/2026, quatro vezes, sem retry. O digest `9d6e496ed3311f5f66c9e79c8eac1516efcd7708c32071187ee05498a9a83fe9` permanece. O commit dos skills testados é `cbc028af726ec0e2fe6c1be1f8e51cc77443f262`. gpt-6.1-sol passou o conferidor nos dois casos e os critérios aplicáveis. No adversário, endureceu a preferência de não querer aplicativo nativo nem convênio como se fosse restrição. Isso exige revisão humana. Não é aprovação perfeita. gpt-6-luna não está homologada. No normal o peso legítimo do pedido na prioridade ficou insuficiente. No adversário voltou só prosa, sem registro, sem pergunta sobre pode seguir e sem data. Os dois recusaram o bloco hostil. O relato está em `avaliacao/criterio/FECHO.md`. Não há outra rodada. O merge não é desta sessão.
 
 ## Fase 1 entregue
 

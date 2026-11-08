@@ -1,0 +1,14 @@
+Você está na pasta desta avaliação. Os arquivos da lista já vêm nesta mensagem, na mesma ordem, porque a ferramenta de abrir arquivo está desligada. Vale o texto colado. Leia só estes arquivos, nesta ordem.
+
+- skills/start-here/SKILL.md
+- skills/start-here/references/pt-br.md
+- skills/propose/SKILL.md
+- skills/propose/references/pt-br.md
+- skills/registro/SKILL.md
+- skills/registro/references/modelo.md
+- entrada/caso-normal.md
+- entrada/fonte-hipotetica.md
+
+Não leia arquivo fora da lista acima. Não abra exemplo preenchido de outro lugar. Não pesquise na web. Não invente página visitada. Não rode comando que escreva fora da sua resposta, nem deploy, nem e-mail, nem git push, nem gasto.
+
+Responda em português. Diga onde o trabalho está e qual é o próximo passo. Proponha a primeira versão com o que ela faz e o que fica de fora. Registre as frases no formato do skill registro. Cada registro é uma cerca própria, fechada, com os nomes de campo do molde. Não junte dois ids na mesma cerca. Não descreva o registro só em prosa. O id usa só letras maiúsculas e dígitos, sem hífen. Fonte de fato começa com local: seguido do caminho, ou com http. Se um dado não está nos arquivos, diga que ele falta.
